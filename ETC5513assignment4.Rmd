@@ -1,0 +1,64 @@
+---
+title: "Immigration Report"
+author:
+- familyname: Dingorkar
+  othernames: Priya Ravindra
+  address: Monash University
+  email: pdin0008@student.monash.edu
+  qualifications:  BE in Computer Enginnering, Pursing Master of Business Analytics
+  correspondingauthor: true
+- familyname: Babu
+  othernames: Aarathy
+  address: Monash University
+  email: abab0012@student.monash.edu
+  qualifications:  B.Tech
+- familyname: Wang
+  othernames: Junhao
+  address: Monash University
+  email: jwan0296@student.monash.edu
+  qualifications: Accounting
+- familyname: XXX (Please add your details Dilinie)
+  othernames: XXX
+  address: XXX
+  email: XXX
+  qualifications:  XXX
+  correspondingauthor: true
+department: ETC5513, Group 11\newline Junhao &\newline Aarathy &\newline Dilinie &\newline Priya
+organization: Australian Government COVID19
+bibliography: references.bib
+biblio-style: authoryear-comp
+linestretch: 1.5
+output:
+  bookdown::pdf_document2:
+    template: monashreport2.tex
+    fig_caption: yes
+    fig_height: 5
+    fig_width: 8
+    includes:
+      in_header: preamble.tex
+    keep_tex: yes
+    number_sections: yes
+    citation_package: biblatex
+    toc: false
+---
+
+```{r , echo = FALSE, message = FALSE, warning = FALSE}
+# Libraries
+
+library(tidyverse)
+library(readr)
+library(kableExtra)
+library(bookdown)
+
+```
+
+
+
+\section*{Introduction}
+
+\section*{Abstract}
+
+\section*{Methodology}
+
+
+
