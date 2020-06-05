@@ -60,5 +60,12 @@ library(bookdown)
 
 \section*{Methodology}
 
+\section*{File A1}
+
+```{r}
+
+file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
+
+```
 
 
