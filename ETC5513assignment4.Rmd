@@ -17,11 +17,11 @@ author:
   address: Monash University
   email: jwan0296@student.monash.edu
   qualifications: Accounting
-- familyname: XXX (Please add your details Dilinie)
-  othernames: XXX
-  address: XXX
-  email: XXX
-  qualifications:  XXX
+- familyname: Seimon
+  othernames: Dilinie
+  address: Monash University
+  email: asei0003@student.monash.edu
+  qualifications:  BSc.
   correspondingauthor: true
 department: ETC5513, Group 11\newline Junhao &\newline Aarathy &\newline Dilinie &\newline Priya
 organization: Australian Government COVID19
