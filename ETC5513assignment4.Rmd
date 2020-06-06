@@ -69,3 +69,28 @@ file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
 ```
 
 
+```{r datacleaning}
+file1 %>% 
+  mutate(edu_lfs = as.character(edu_lfs),
+         age_lfs=as.character(age_lfs),
+         sex=as.character(sex),
+         national=as.character(national),
+         oecd=as.character(oecd),
+         oecdb=as.character(oecdb),
+         fborn=as.character(fborn)
+         ) %>% 
+         mutate(
+           age_lfs = case_when(
+    str_detect(age_lfs,"0") ~ "0-14",
+     str_detect(age_lfs,"1") ~ "15-24",
+ str_detect(age_lfs,"2") ~ "25-64",
+ str_detect(age_lfs,"3") ~ "65+",
+ str_detect(age_lfs,"12") ~ "15-84",
+ str_detect(age_lfs,"99") ~ "Unknown" 
+ )
+         )
+            
+
+```
+
+
