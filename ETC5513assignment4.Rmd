@@ -87,8 +87,14 @@ file1 %>%
  str_detect(age_lfs,"3") ~ "65+",
  str_detect(age_lfs,"12") ~ "15-84",
  str_detect(age_lfs,"99") ~ "Unknown" 
- )
-         )
+ )) %>% 
+  
+  mutate(sex = case_when(
+   str_detect(sex,"1") ~ "Male",
+   str_detect(sex,"2")~ "Female"
+ ))
+
+
             
 
 ```
