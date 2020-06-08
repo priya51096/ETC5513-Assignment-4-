@@ -49,6 +49,7 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
+library(scales)
 
 ```
 
@@ -128,9 +129,27 @@ whomigrates<- file1 %>%
 
 ```
 
+```{r topdestinations}
+
+whomigrates %>%  mutate(
+         sex=as.factor(sex),
+         oecd=as.factor(oecd),#oecd resident
+         oecdb=as.factor(oecdb),#oecd born
+         age_lfs=as.factor(age_lfs),
+         edu_lfs =as.factor(edu_lfs)
+         ) %>% 
+  group_by(country) %>% summarise(totsmigrants=sum(number)) %>% arrange(desc(totsmigrants)) %>% head(10) %>% 
+  
+  
+  kable(caption="top 10 destinations") %>% 
+kable_styling(bootstrap_options= c("striped","condensed"),full_width = F,fixed_thead = T)
+
+```
+
+
 
 ```{r gendergap}
-library(scales)
+
 options(scipen=999)
 gendergap <- whomigrates %>% 
   mutate(
@@ -151,5 +170,6 @@ gendergap <- whomigrates %>%
 
 
 ```
+
 
 
