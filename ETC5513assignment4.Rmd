@@ -70,7 +70,7 @@ file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
 
 
 ```{r datacleaning}
-file1 %>% 
+whomigrates<- file1 %>% 
   mutate(edu_lfs = as.character(edu_lfs),
          age_lfs=as.character(age_lfs),
          sex=as.character(sex),
@@ -92,10 +92,63 @@ file1 %>%
   mutate(sex = case_when(
    str_detect(sex,"1") ~ "Male",
    str_detect(sex,"2")~ "Female"
- ))
+ )) %>%
+  mutate(edu_lfs = case_when(
+    str_detect(edu_lfs,"1")~"low",
+    str_detect(edu_lfs,"2")~"medium",
+    str_detect(edu_lfs,"3")~"high",
+    str_detect(edu_lfs,"99")~"unknown"
+  )) %>% mutate(national = case_when(
+    
+    str_detect(age_lfs,"0") ~ "Foreigner",
+     str_detect(age_lfs,"1") ~ "National",
+     str_detect(edu_lfs,"99")~"unknown"
+    
+  )) %>% mutate(oecd = case_when(
+    
+    str_detect(age_lfs,"0") ~ "Non member",
+     str_detect(age_lfs,"1") ~ "Member"
+    
+  )) %>% mutate(oecdb = case_when(
+    
+    str_detect(age_lfs,"0") ~ "Non member",
+     str_detect(age_lfs,"1") ~ "Member"
+    
+  )) %>% mutate(fborn = case_when(
+    
+    str_detect(age_lfs,"0") ~ " Native-born",
+     str_detect(age_lfs,"1") ~ " Foreign-born ",
+     str_detect(edu_lfs,"99")~"unknown"
+    
+  ))
+
 
 
             
+
+```
+
+
+```{r gendergap}
+library(scales)
+options(scipen=999)
+gendergap <- whomigrates %>% 
+  mutate(
+         sex=as.factor(sex),
+         oecd=as.factor(oecd),#oecd resident
+         oecdb=as.factor(oecdb),#oecd born
+         age_lfs=as.factor(age_lfs)
+         ) %>% 
+  group_by(sex,country)%>% summarise(n=sum(number)) 
+   
+  gendergap %>% 
+    ggplot(aes(x= fct_reorder(country,n),y=n,fill=sex)) +
+    geom_col(position = "dodge")+ 
+    theme_bw()+theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_colour_brewer(palette = "Set1")+ 
+    scale_y_continuous(labels = comma)
+
+
 
 ```
 
