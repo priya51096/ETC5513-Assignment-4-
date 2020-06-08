@@ -170,6 +170,21 @@ gendergap <- whomigrates %>%
 
 
 ```
+```{r agegap}
+whomigrates %>% 
 
+  mutate(
+         sex=as.factor(sex),
+         oecd=as.factor(oecd),#oecd resident
+         oecdb=as.factor(oecdb),#oecd born
+         age_lfs=as.factor(age_lfs),
+         edu_lfs =as.factor(edu_lfs)
+         ) %>% 
+  group_by(edu_lfs,country,sex,age_lfs)%>% summarise(total=sum(number)) %>% arrange(desc(total)) 
+
+
+
+
+```
 
 
