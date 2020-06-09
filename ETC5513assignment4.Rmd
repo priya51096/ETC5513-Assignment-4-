@@ -54,6 +54,7 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
+library(scales)
 ```
 
 
@@ -111,6 +112,21 @@ dat1 <- dat %>%
                         ))
 ```
 
+```{r}
+sum_dat1 <- dat1 %>% 
+  group_by(Continent, Skill) %>% 
+  summarise(tot = sum(number), na.rm = TRUE)
+
+ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  scale_fill_viridis_d() +
+  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle("Skill Level in different Continents across the Globe")
+```
+
+```{r}
+
+```
 
 
 \section*{Abstract}
