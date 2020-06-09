@@ -82,9 +82,6 @@ library(readr)
 dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
 ```
 
-```{r}
-
-```
 
 
 
