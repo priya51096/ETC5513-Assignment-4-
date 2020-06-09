@@ -49,7 +49,7 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
-
+library(visdat)
 ```
 
 
@@ -64,6 +64,45 @@ library(bookdown)
 
 ```{r reading-data}
 fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
+```
+```{r}
+vis_miss(fileb1)
+```
+
+```{r cleaning-data}
+fileb1 %>% mutate(
+  sex = case_when(
+    sex == "1" ~ "male",
+    sex == "2"~ "female"
+    ),
+  edu_lfs = case_when(
+    edu_lfs == "1" ~ "low",
+    edu_lfs == "2" ~ "meduim",
+    edu_lfs == "3" ~ "high",
+    edu_lfs == "99" ~ "unknown"
+  ),
+  dos_lfs = case_when(
+    dos_lfs == "0" ~ "native-born",
+    dos_lfs == "1" ~ "five-years-or-less",
+    dos_lfs == "2" ~ "five-to-ten-years",
+    dos_lfs == "3" ~ "more-than-ten-years",
+    dos_lfs == "23" ~ "more-than-five-years",
+    dos_lfs == "99" ~ "unknown",
+  ),
+  oecd = case_when(
+    oecd == "0" ~ "non-member",
+    oecd == "1" ~ "member"
+  ),
+  oecdb = case_when(
+    oecdb == "0" ~ "non-member",
+    oecdb == "1" ~ "member"
+  ),
+  fborn = case_when(
+    fborn == "0" ~ "native-born",
+    fborn == "1" ~ "foreign-born",
+    fborn == "99" ~ "unknown"
+  )
+  )
 ```
 
 
