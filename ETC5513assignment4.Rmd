@@ -49,7 +49,6 @@ knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE, warning = FA
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
-
 library(tidyverse)
 library(readr)
 library(kableExtra)
@@ -124,9 +123,6 @@ ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
   ggtitle("Skill Level in different Continents across the Globe")
 ```
 
-```{r}
-
-```
 
 
 \section*{Abstract}
