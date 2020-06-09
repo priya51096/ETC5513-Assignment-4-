@@ -77,7 +77,7 @@ What is ISCED ?
 
 >The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message}
 library(readr)
 dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
 ```
