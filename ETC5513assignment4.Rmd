@@ -105,5 +105,10 @@ fileb1cleaned <- fileb1 %>% mutate(
   )
 ```
 
+```{r filter-aus-data}
+aus_b1 <- fileb1cleaned %>% filter(country == "AUS")
+
+```
+
 
 
