@@ -51,6 +51,7 @@ knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE, warning = FA
 # Libraries
 library(tidyverse)
 library(readr)
+library(readr)
 library(kableExtra)
 library(bookdown)
 library(scales)
@@ -62,12 +63,13 @@ library(knitr)
 
 \section*{Research Questions}
   
-- Visual summary of corona virus cases and deaths rates in  the following countries
-- Please meention about the license part in collab
+- Looking at the Skill level, Occupations across the globe
+
 
  \begin{enumerate}
-   \item Italia
-   \item Germany
+   \item Graph for Skill Level
+   \item Graph for Overqulaified 
+   \item Table for different Occupations
  \end{enumerate}
 
 \section*{Introduction}
@@ -81,11 +83,9 @@ What is ISCED ?
 >The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
 
 ```{r, echo=FALSE, message}
-library(readr)
 dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
 ```
 
-In this branch we will do data cleaning
 
 ```{r}
 dat1 <- dat %>% 
@@ -161,7 +161,7 @@ ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
   ggtitle("Qual Level in different Continents across the Globe")
 ```
 
-```{r RankCollege}
+```{r}
 dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
         group_by(Continent, Occupations) %>% 
         summarise(tot = (sum(number , na.rm = TRUE)))
@@ -172,8 +172,7 @@ dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>%
 ```
 
 
-```{r RankCollege}
-
+```{r}
 table <- dat4 %>%
   dplyr::select(-Unknown)  
 
