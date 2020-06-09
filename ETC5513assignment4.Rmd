@@ -74,7 +74,7 @@ fileb1cleaned <- fileb1 %>% mutate(
     ),
   edu_lfs = case_when(
     edu_lfs == "1" ~ "low",
-    edu_lfs == "2" ~ "meduim",
+    edu_lfs == "2" ~ "medium",
     edu_lfs == "3" ~ "high",
     edu_lfs == "99" ~ "unknown"
   ),
@@ -116,7 +116,10 @@ aus_b1 %>% ggplot(aes(x = dos_lfs,
   geom_tile(aes(fill = count)) +
   labs(x = "Duration of Stay",
        y = "Level of Education") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(limits = c("five-years-or-less", "five-to-ten-years", "more-than-ten-years", "native-born", "unknown")) +
+  scale_y_discrete(limits = c("low", "medium", "high", "unknown")) +
+  scale_fill_continuous(labels=comma)
 ```
 
 
