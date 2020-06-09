@@ -62,7 +62,7 @@ library(scales)
 
 \section*{Methodology}
 
-\section* {migrants-education}
+\section* {The Education Level of Australian Residents}
 
 ```{r reading-data}
 fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
@@ -106,7 +106,7 @@ fileb1cleaned <- fileb1 %>% mutate(
 
 In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. @hawthorne2010valuable states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the "two-step-migration" by @hawthorne2010valuable.
 
-Section \@ref(migrants-education) will analyse the education levels of current residents of Australia.
+This section will analyse the education levels of current residents of Australia.
 
 The dataset provides information on the education levels of Australian residents and their duration of stay within the country.  
 The residents of Australia have been categorized based on their duration of stay within the country as  
@@ -129,7 +129,7 @@ aus_b1 <- fileb1cleaned %>% filter(country == "AUS") %>%
 ```
 
 
-```{r tile-plot-edu-vs-duration}
+```{r tile-plot-edu-vs-duration, fig.cap="Breakdown of Australian residents based on their level of Education and duration of stay in Australia"}
 aus_b1 %>% ggplot(aes(x = dos_lfs,
                      y = edu_lfs)) +
   geom_tile(aes(fill = count)) +
@@ -139,6 +139,14 @@ aus_b1 %>% ggplot(aes(x = dos_lfs,
   scale_x_discrete(limits = c("five-years-or-less", "five-to-ten-years", "more-than-ten-years", "native-born", "unknown")) +
   scale_y_discrete(limits = c("low", "medium", "high", "unknown")) +
   scale_fill_continuous(labels=comma)
+```
+
+```{r}
+aus_b1_sex <- fileb1cleaned %>% filter(country == "AUS") %>%
+  group_by(dos_lfs,edu_lfs, sex) %>%
+  summarise(count = sum(number))
+
+with(aus_b1_sex, ftable(xtabs(count ~ dos_lfs + sex + edu_lfs)))
 ```
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  9 JUN 2020 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  9 JUN 2020 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,37 +1587,32 @@ Overfull \hbox (56.23262pt too wide) detected at line 305
 
 {c:/Users/acer/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map} <./logo.jpg>]
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 317.
-
-LaTeX Warning: Reference `migrants-education' on page 2 undefined on input line
- 317.
-
 <ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf, id=15, 
 578.16pt x 361.35pt>
 File: ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf Gra
 phic file (type pdf)
 <use ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/tile-plot-edu-vs
--duration-1.pdf  used on input line 332.
+-duration-1.pdf  used on input line 334.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
-[2]
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 10.51207pt on input line 335.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 334.
+(Font)              scaled to size 10.51207pt on input line 335.
+[2]
+Overfull \vbox (490.46289pt too high) has occurred while \output is active []
 
-Package caption Warning: Unused \captionsetup[figure] on input line 69.
-See the caption package documentation for explanation.
-
+[3 <./ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf>]
 
 Package caption Warning: Unused \captionsetup[table] on input line 70.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 336.
-[3 <./ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 336.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 424.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 424.
 (./ETC5513assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 336.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 336.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 424.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 424.
 Package rerunfilecheck Info: File `ETC5513assignment4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1630,16 +1625,16 @@ Package biblatex Warning: Please rerun LaTeX.
 Package logreq Info: Writing requests to 'ETC5513assignment4.run.xml'.
 \openout1 = `ETC5513assignment4.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 336.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 424.
  ) 
 Here is how much of TeX's memory you used:
- 26055 strings out of 482913
- 431475 string characters out of 5957764
- 1088972 words of memory out of 5000000
- 40803 multiletter control sequences out of 15000+600000
- 625702 words of font info for 173 fonts, out of 8000000 for 9000
+ 26077 strings out of 482913
+ 431785 string characters out of 5957764
+ 1098104 words of memory out of 5000000
+ 40823 multiletter control sequences out of 15000+600000
+ 625785 words of font info for 173 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,14n,54p,954b,1430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,14n,90p,954b,1430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnans
 i.enc}{c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r
 .enc}{c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawes
@@ -1651,10 +1646,10 @@ ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/
 Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pf
 b><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvs
 r8a.pfb>
-Output written on ETC5513assignment4.pdf (3 pages, 103841 bytes).
+Output written on ETC5513assignment4.pdf (4 pages, 109089 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
+ 66 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  30731 words of extra memory for PDF output out of 35830 (max. 10000000)
 
