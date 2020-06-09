@@ -55,6 +55,8 @@ library(kableExtra)
 library(bookdown)
 library(scales)
 library(naniar)
+library(bookdown)
+library(knitr)
 ```
 
 
@@ -110,11 +112,25 @@ dat1 <- dat %>%
     str_detect(overqualified,"0") ~ "Not OverQualified",
     str_detect(overqualified,"1") ~ "OverQualified",
     str_detect(overqualified,"99") ~ "Unknown",
-  )) %>% replace_with_na (replace =
+  )) %>% 
+  mutate(Occupations = case_when(
+    str_detect(occ_1d,"0") ~ "Armed Forced Occupations",
+    str_detect(occ_1d,"1") ~ "Managerial Occupations",
+    str_detect(occ_1d,"2") ~ "Professional Occupations",
+    str_detect(occ_1d,"3") ~ "Technicians and Associate Professional Occupations",
+    str_detect(occ_1d,"4") ~ "Clerical Support Worker Occupations",
+    str_detect(occ_1d,"5") ~ "Service and Sales Worker Occupations",
+    str_detect(occ_1d,"6") ~ "Skilled Agricultural, Forestry and Fishery Occupations",
+    str_detect(occ_1d,"7") ~ "Craft and Related trade Occupations",
+    str_detect(occ_1d,"8") ~ "Plant and Machine Operators and Assembler Occupations",
+    str_detect(occ_1d,"9") ~ "Elementary Occupations",
+    str_detect(occ_1d,"99") ~ "Unknown"
+    )) %>% replace_with_na (replace =
                     list(skill_occ = "Unknown",
                          sex = "Unknown",
                          regionb = "Unknown",
-                         overqualified = "Unknown"
+                         overqualified = "Unknown",
+                         occ_1d = "Unknown"
                         ))
 ```
 
@@ -145,6 +161,32 @@ ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
   ggtitle("Qual Level in different Continents across the Globe")
 ```
 
+
+```{r RankCollege}
+
+dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
+        group_by(Continent, Occupations) %>% 
+        summarise(tot = (sum(number , na.rm = TRUE)))
+```
+
+
+```{r}
+ dat4 <- pivot_wider(dat3, names_from = Continent, values_from = tot)
+```
+
+
+
+```{r RankCollege}
+
+table <- dat4 %>%
+  dplyr::select(-Unknown)  
+
+knitr::kable(
+table[1:10,], booktabs = TRUE,
+  caption = 'TABLE DISPLAYING THE TOP 50 COLLEGES WORLDWIDE') %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+```
 
 \section*{Abstract}
 
