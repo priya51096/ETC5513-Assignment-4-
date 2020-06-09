@@ -16,7 +16,7 @@ author:
   othernames: Junhao
   address: Monash University
   email: jwan0296@student.monash.edu
-  qualifications: Accounting
+  qualifications: B.Accounting
 - familyname: XXX (Please add your details Dilinie)
   othernames: XXX
   address: XXX
