@@ -106,8 +106,10 @@ fileb1cleaned <- fileb1 %>% mutate(
 ```
 
 ```{r filter-aus-data}
-aus_b1 <- fileb1cleaned %>% filter(country == "AUS")
-
+#filter AUS residents
+aus_b1 <- fileb1cleaned %>% filter(country == "AUS") %>%
+  group_by(dos_lfs,edu_lfs) %>%
+  summarise(count = sum(number))
 ```
 
 
