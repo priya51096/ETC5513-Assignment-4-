@@ -70,7 +70,7 @@ vis_miss(fileb1)
 ```
 
 ```{r cleaning-data}
-fileb1 %>% mutate(
+fileb1cleaned <- fileb1 %>% mutate(
   sex = case_when(
     sex == "1" ~ "male",
     sex == "2"~ "female"
