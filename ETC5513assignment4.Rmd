@@ -170,35 +170,9 @@ gendergap <- whomigrates %>%
 
 
 ```
-```{r agegap}
-whomigrates %>% 
-
-  mutate(
-         sex=as.factor(sex),
-         oecd=as.factor(oecd),#oecd resident
-         oecdb=as.factor(oecdb),#oecd born
-         age_lfs=as.factor(age_lfs),
-         edu_lfs =as.factor(edu_lfs)
-         ) %>% 
-  group_by(edu_lfs,country,sex,age_lfs)%>% summarise(total=sum(number)) %>% arrange(desc(total)) 
 
 
 
 
-```
 
-
-
-# limitations
-
-
-- inavailability and inconsistency of data 
-
-Austria, Belgium, Czech Republic, Estonia, Iceland and Poland - These countries were unable to provide data for this update of DIOC. As a result, the DIOC 2010/11 data were adjusted via raking to be consistent with existing and publicly available data for 2015/16. 
-
-Israel – Country of birth is not available for the 0-14 age group.
-
-United States – It is not possible to release data on countries of origin with populations in the United States under 15 000 due to the regulations of the American Community Survey. *values were imputed. assumptions made * *there is no detailed information on nationality or education (instead there is the broad nationality variable and the broad educational attainment variable) in File A; and no detailed information on education in Files B, C or D: There is no age information in File C for those whose country of birth was imputed. *
-
-File A generally includes all individuals of all ages, although for some countries the 0-14 age group may be omitted. Files B, C and D include only the population aged 15 years and over. 
 
