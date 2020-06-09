@@ -50,6 +50,7 @@ library(readr)
 library(kableExtra)
 library(bookdown)
 library(scales)
+library(naniar)
 
 ```
 
@@ -88,8 +89,7 @@ whomigrates<- file1 %>%
  str_detect(age_lfs,"3") ~ "65+",
  str_detect(age_lfs,"12") ~ "15-84",
  str_detect(age_lfs,"99") ~ "Unknown" 
- )) %>% 
-  
+ )) %>%
   mutate(sex = case_when(
    str_detect(sex,"1") ~ "Male",
    str_detect(sex,"2")~ "Female"
@@ -99,29 +99,32 @@ whomigrates<- file1 %>%
     str_detect(edu_lfs,"2")~"medium",
     str_detect(edu_lfs,"3")~"high",
     str_detect(edu_lfs,"99")~"unknown"
-  )) %>% mutate(national = case_when(
-    
-    str_detect(age_lfs,"0") ~ "Foreigner",
-     str_detect(age_lfs,"1") ~ "National",
-     str_detect(edu_lfs,"99")~"unknown"
+  )) %>% 
+      mutate(national = case_when(
+    str_detect(national,"0") ~ "Foreigner",
+     str_detect(national,"1") ~ "National",
+     str_detect(national,"99")~"unknown"
     
   )) %>% mutate(oecd = case_when(
     
-    str_detect(age_lfs,"0") ~ "Non member",
-     str_detect(age_lfs,"1") ~ "Member"
+    str_detect(oecd,"0") ~ "Non member",
+     str_detect(oecd,"1") ~ "Member"
     
   )) %>% mutate(oecdb = case_when(
     
-    str_detect(age_lfs,"0") ~ "Non member",
-     str_detect(age_lfs,"1") ~ "Member"
+    str_detect(oecdb,"0") ~ "Non member",
+     str_detect(oecdb,"1") ~ "Member"
     
   )) %>% mutate(fborn = case_when(
     
-    str_detect(age_lfs,"0") ~ " Native-born",
-     str_detect(age_lfs,"1") ~ " Foreign-born ",
-     str_detect(edu_lfs,"99")~"unknown"
+    str_detect(fborn,"0") ~ " Native-born",
+     str_detect(fborn,"1") ~ " Foreign-born ",
+     str_detect(fborn,"99")~"unknown"
     
-  ))
+  )) %>% replace_with_na (replace =
+                    list(edu_lfs = "unknown",
+                         national = "unknown",
+                         fborn = "unknown"))
 
 
 
@@ -172,7 +175,17 @@ gendergap <- whomigrates %>%
 ```
 
 
-#age analysis
+```{r}
+whomigrates  %>% 
+  mutate(
+         sex=as.factor(sex),
+         oecd=as.factor(oecd),#oecd resident
+         oecdb=as.factor(oecdb),#oecd born
+         age_lfs=as.factor(age_lfs)
+         ) 
+
+```
+
 
 
 
