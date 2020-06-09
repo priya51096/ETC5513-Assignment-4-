@@ -62,14 +62,14 @@ library(naniar)
 
 \section*{Methodology}
 
-\section*{File A1}
+\section*{Gender Gap in Migration}
+
 
 ```{r dataread , echo=FALSE, message=FALSE}
 
 file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
 
 ```
-
 
 ```{r datacleaning , echo = FALSE, message = FALSE}
 whomigrates<- file1 %>% 
@@ -127,13 +127,11 @@ whomigrates<- file1 %>%
                          fborn = "unknown"
                         ))
 
-
-
-            
-
 ```
 
-```{r topdestinations, echo = FALSE, message = FALSE}
+
+
+```{r topdestinations, echo = FALSE, message = FALSE, warning=FALSE}
 
 top_10 <- whomigrates %>%  mutate(
          sex=as.factor(sex),
@@ -142,7 +140,7 @@ top_10 <- whomigrates %>%  mutate(
          age_lfs=as.factor(age_lfs),
          edu_lfs =as.factor(edu_lfs)
          ) %>% 
-  group_by(country) %>% summarise(Immigrant_Count=sum(number)) %>% arrange(desc(Immigrant_Count)) %>% head(10)  
+  group_by(country) %>% summarise(Immigrant_Count=sum(number,na.rm=T)) %>% arrange(desc(Immigrant_Count)) %>% head(10)  
   
   top_10 %>% 
    
@@ -159,14 +157,14 @@ top_10 <- whomigrates %>%  mutate(
      str_detect(country,"KOR") ~  "Korea",
      str_detect(country,"ESP") ~  "Spain",
   ))%>% rename(Country = country) %>%
-  kable(caption="Top 10 destinations") %>% 
-kable_styling(bootstrap_options= c("striped","condensed"),full_width = F,fixed_thead = T)
+  kable("latex", booktabs = T,caption="Top 10 destinations") %>% 
+kable_styling(latex_options= c("striped","condensed"),full_width = F)
 
 ```
 
 
 
-```{r gendergap, echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population in countries" , fig.width=10}
+```{r gendergap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population in countries" , fig.width=10}
 
 options(scipen=999)
 gendergap <- whomigrates %>% 
@@ -176,7 +174,7 @@ gendergap <- whomigrates %>%
          oecdb=as.factor(oecdb),#oecd born
          age_lfs=as.factor(age_lfs)
          ) %>% 
-  group_by(sex,country)%>% summarise(n=sum(number)) 
+  group_by(sex,country)%>% summarise(n=sum(number,na.rm = T)) 
    
   gendergap %>% 
     ggplot(aes(x= fct_reorder(country,n),y=n,fill= sex) )+
@@ -192,7 +190,7 @@ gendergap <- whomigrates %>%
 
 
 
-```{r agegap, echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population in countries across age groups" , fig.width=10}
+```{r agegap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population across age groups in countries " , fig.width=7}
 agegap <- whomigrates  %>% 
   mutate(
          sex=as.factor(sex),
@@ -200,9 +198,9 @@ agegap <- whomigrates  %>%
          oecdb=as.factor(oecdb),#oecd born
          age_lfs=as.factor(age_lfs)
          ) %>%
-  filter(age_lfs!= c("0-14","Unknown")) %>%
+ 
   group_by(age_lfs,sex,country) %>% 
-  summarise(total=sum(number))
+  summarise(total=sum(number,na.rm = T))
   `%notin%` <- Negate(`%in%`)
  agegap%>%  
   filter(age_lfs %notin% c("0-14","Unknown")) %>%
@@ -213,7 +211,8 @@ agegap <- whomigrates  %>%
     theme_bw()+theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_colour_brewer(palette = "Set1")+ 
     scale_y_continuous(labels = comma) +
-   facet_wrap(~age_lfs,nrow = 3) 
+   facet_wrap(~age_lfs,nrow = 3) + ylab("Number of Immigrants") +
+   xlab("Country")
 
 
 ```
