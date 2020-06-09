@@ -113,4 +113,11 @@ aus_b1 <- fileb1cleaned %>% filter(country == "AUS") %>%
 ```
 
 
+```{r tile-plot-edu-vs-duration}
+ggplot(aus_b1, aes(x=dos_lfs, y=edu_lfs)) +
+  geom_tile(aes(fill= count))
+```
+
+
+
 
