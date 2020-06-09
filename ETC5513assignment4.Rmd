@@ -49,7 +49,7 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
-
+library(countrycode)
 ```
 
 
@@ -88,9 +88,10 @@ GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.
 ```
 
 ```{r}
-GGM1 <- GGM %>% mutate(unemployrateM = unemployed/(employed + inactive + unemployed)) %>% select(country,unemployrateM)
+GGM1 <- GGM %>% mutate(unemployrateM = (unemployed/(employed + inactive + unemployed)*100)) %>% select(country,unemployrateM)
 GGM1
 ```
+
 
 
 
@@ -99,7 +100,7 @@ GGF <- GG %>% group_by(country, employment) %>% summarise(countM = sum(female, n
 ```
 
 ```{r}
-GGF1 <- GGF %>% mutate(unemployrateF = unemployed/(employed + inactive + unemployed)) %>% select(country,unemployrateF)
+GGF1 <- GGF %>% mutate(unemployrateF = (unemployed/(employed + inactive + unemployed))*100) %>% select(country,unemployrateF)
 GGF1
 ```
 ```{r}
@@ -108,10 +109,11 @@ GGMF
 ```
 
 
-```{r GAP, fig.width=11, fig.height=10, fig.cap ="unemployment gender gap"}
-ggplot(filter(GGMF, country!="LUX", country != "KOR"), aes(x = country, y = unemployrateGAP)) +  
-  geom_col() 
+```{r GAP, fig.width=11, fig.height=10, fig.cap = "unemployment gender gap", messgae =  FALSE}
+ggplot(filter(GGMF), aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
+  geom_col()
 ```
+
 
 
 Analysis:  
@@ -145,8 +147,8 @@ C4
 ```
 
 
-```{r ed_un, fig.width=11, fig.height=10, fig.cap ="unemployment in different education level"}
-ggplot(filter(C4,country!="LUX", country != "KOR"), aes(x = educationlevel, y = unemployRATE)) + geom_col() +  facet_wrap(~ country)
+```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level" }
+ggplot(filter(C4), aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
 
 
@@ -158,7 +160,4 @@ Analysis:
 
 Limitation:
    There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
-
-
-
 
