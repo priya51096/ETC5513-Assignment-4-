@@ -5,7 +5,7 @@ author:
   othernames: Priya Ravindra
   address: Monash University
   email: pdin0008@student.monash.edu
-  qualifications:  BE in Computer Enginnering, Pursing Master of Business Analytics
+  qualifications:  BE in CE & Pursing Master of Business Analytics
   correspondingauthor: true
 - familyname: Babu
   othernames: Aarathy
@@ -42,31 +42,51 @@ output:
     toc: false
 ---
 
-```{r , echo = FALSE, message = FALSE, warning = FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
 library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
-
 ```
 
 
+\section*{Research Questions}
+  
+- Visual summary of corona virus cases and deaths rates in  the following countries
+- Please meention about the license part in collab
+
+ \begin{enumerate}
+   \item Italia
+   \item Germany
+ \end{enumerate}
 
 \section*{Introduction}
 
 What is OECD ?
 
-The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
+> The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
 
-Functioning of the OECD
+What is ISCED ?
 
-The Organization for Economic Cooperation and Development (OECD) is a unique forum where the governments of 36 member states with market economies work wit
+>The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
 
-What is ISCED 
+```{r, echo=FALSE}
+library(readr)
+dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
+```
 
-The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
+```{r}
+
+```
+
+
 
 \section*{Abstract}
 
