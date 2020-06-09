@@ -54,6 +54,7 @@ library(readr)
 library(kableExtra)
 library(bookdown)
 library(scales)
+library(naniar)
 ```
 
 
@@ -104,15 +105,22 @@ dat1 <- dat %>%
     str_detect(skill_occ,"2") ~ "Skill Level 02",
     str_detect(skill_occ,"3") ~ "Skill Level 03",
     str_detect(skill_occ,"99") ~ "Unknown"
+  )) %>%
+  mutate(Qualification = case_when(
+    str_detect(overqualified,"0") ~ "Not OverQualified",
+    str_detect(overqualified,"1") ~ "OverQualified",
+    str_detect(overqualified,"99") ~ "Unknown",
   )) %>% replace_with_na (replace =
                     list(skill_occ = "Unknown",
                          sex = "Unknown",
-                         regionb = "Unknown"
+                         regionb = "Unknown",
+                         overqualified = "Unknown"
                         ))
 ```
 
 ```{r}
-sum_dat1 <- dat1 %>% 
+sum_dat1 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
+  dplyr::filter(Skill != "Unknown") %>% 
   group_by(Continent, Skill) %>% 
   summarise(tot = sum(number), na.rm = TRUE)
 
@@ -123,6 +131,19 @@ ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
   ggtitle("Skill Level in different Continents across the Globe")
 ```
 
+
+```{r}
+sum_dat2 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
+  dplyr::filter(Qualification != "Unknown") %>% 
+  group_by(Continent, Qualification) %>% 
+  summarise(tot = sum(number), na.rm = TRUE)
+
+ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  scale_fill_viridis_d() +
+  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle("Qual Level in different Continents across the Globe")
+```
 
 
 \section*{Abstract}
