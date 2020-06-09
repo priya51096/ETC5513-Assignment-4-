@@ -124,7 +124,8 @@ whomigrates<- file1 %>%
   )) %>% replace_with_na (replace =
                     list(edu_lfs = "unknown",
                          national = "unknown",
-                         fborn = "unknown"))
+                         fborn = "unknown"
+                        ))
 
 
 
@@ -176,13 +177,27 @@ gendergap <- whomigrates %>%
 
 
 ```{r}
-whomigrates  %>% 
+agegap <- whomigrates  %>% 
   mutate(
          sex=as.factor(sex),
          oecd=as.factor(oecd),#oecd resident
          oecdb=as.factor(oecdb),#oecd born
          age_lfs=as.factor(age_lfs)
-         ) 
+         ) %>%
+  filter(age_lfs!= c("0-14","Unknown")) %>%
+  group_by(age_lfs,sex,country) %>% 
+  summarise(total=sum(number))
+  `%notin%` <- Negate(`%in%`)
+ agegap%>%  
+  filter(age_lfs %notin% c("0-14","Unknown")) %>%
+  ggplot(aes(x = country,y = total,fill = sex)) +
+
+  
+    geom_col(position = "dodge")+ 
+    theme_bw()+theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_colour_brewer(palette = "Set1")+ 
+    scale_y_continuous(labels = comma) + facet_wrap(~age_lfs,nrow = 3)
+
 
 ```
 
