@@ -16,7 +16,7 @@ author:
   othernames: Junhao
   address: Monash University
   email: jwan0296@student.monash.edu
-  qualifications: Accounting
+  qualifications: B.Accounting
 - familyname: XXX (Please add your details Dilinie)
   othernames: XXX
   address: XXX
@@ -55,10 +55,110 @@ library(bookdown)
 
 
 \section*{Introduction}
+   This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants.
 
 \section*{Abstract}
 
 \section*{Methodology}
+
+```{r}
+C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
+C
+```
+
+```{r}
+C1 <- C %>% mutate(gender = case_when(str_detect(sex, "1") ~ "male",
+                         str_detect(sex, "2") ~ "female"))
+C2 <- C1 %>% mutate(employment = case_when(str_detect(labour_force_status
+, "1") ~ "employed",
+                         str_detect(labour_force_status
+, "2") ~ "unemployed",
+                         str_detect(labour_force_status
+, "3")~ "inactive",
+                         str_detect(labour_force_status
+, "99")~ "unknown"))
+C2
+```
+```{r}
+GG <- C2 %>% select(!sex) %>% pivot_wider(names_from = gender, values_from = number) %>% select(country, male, female, employment)
+GG
+```
+```{r}
+GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
+```
+
+```{r}
+GGM1 <- GGM %>% mutate(unemployrateM = unemployed/(employed + inactive + unemployed)) %>% select(country,unemployrateM)
+GGM1
+```
+
+
+
+```{r}
+GGF <- GG %>% group_by(country, employment) %>% summarise(countM = sum(female, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
+```
+
+```{r}
+GGF1 <- GGF %>% mutate(unemployrateF = unemployed/(employed + inactive + unemployed)) %>% select(country,unemployrateF)
+GGF1
+```
+```{r}
+GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemployrateF - unemployrateM)
+GGMF
+```
+
+
+```{r GAP, fig.width=11, fig.height=10, fig.cap ="unemployment gender gap"}
+ggplot(filter(GGMF, country!="LUX", country != "KOR"), aes(x = country, y = unemployrateGAP)) +  
+  geom_col() 
+```
+
+
+Analysis:  
+
+
+  We can draw conlusion from \ref{fig:GAP} thatGenerally speaking, gender gap in unemployment rate does exist, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male.
+
+
+```{r}
+C3 <- C2 %>% mutate(educationlevel = case_when(str_detect(educational_level
+, "1") ~ "low",
+                         str_detect(educational_level
+, "2") ~ "medium",
+                         str_detect(educational_level
+, "3")~ "high",
+                         str_detect(educational_level
+, "99")~ "unknown"))
+
+```
+
+```{r}
+C4 <-C3 %>% 
+  select(!labour_force_status) %>% 
+  pivot_wider(names_from = employment, values_from = number) %>%
+group_by(country, educationlevel) %>% 
+  summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
+  mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
+  select(country, educationlevel, unemployRATE)
+C4
+
+```
+
+
+```{r ed_un, fig.width=11, fig.height=10, fig.cap ="unemployment in different education level"}
+ggplot(filter(C4,country!="LUX", country != "KOR"), aes(x = educationlevel, y = unemployRATE)) + geom_col() +  facet_wrap(~ country)
+```
+
+
+Analysis:
+  
+  
+  \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+
+
+Limitation:
+   There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+
 
 
 
