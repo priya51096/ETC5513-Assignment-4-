@@ -175,16 +175,7 @@ gendergap <- whomigrates %>%
 ```
 
 
-```{r}
-whomigrates  %>% 
-  mutate(
-         sex=as.factor(sex),
-         oecd=as.factor(oecd),#oecd resident
-         oecdb=as.factor(oecdb),#oecd born
-         age_lfs=as.factor(age_lfs)
-         ) 
 
-```
 
 
 
