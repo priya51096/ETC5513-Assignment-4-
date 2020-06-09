@@ -161,19 +161,15 @@ ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
   ggtitle("Qual Level in different Continents across the Globe")
 ```
 
-
 ```{r RankCollege}
-
 dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
         group_by(Continent, Occupations) %>% 
         summarise(tot = (sum(number , na.rm = TRUE)))
 ```
 
-
 ```{r}
  dat4 <- pivot_wider(dat3, names_from = Continent, values_from = tot)
 ```
-
 
 
 ```{r RankCollege}
