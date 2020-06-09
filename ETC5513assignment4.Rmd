@@ -50,6 +50,7 @@ library(readr)
 library(kableExtra)
 library(bookdown)
 library(visdat)
+library(naniar)
 ```
 
 
@@ -65,8 +66,16 @@ library(visdat)
 ```{r reading-data}
 fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
 ```
+
 ```{r}
-vis_miss(fileb1)
+# missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
+vis_miss(fileb1 %>%
+  replace_with_na(replace =
+                    list(edu_lfs = 99,
+                         dos_lfs = 99,
+                         fborn = 99)
+                  )
+  )
 ```
 
 ```{r cleaning-data}
