@@ -43,6 +43,7 @@ output:
 ---
 
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
 # Libraries
 
 library(tidyverse)

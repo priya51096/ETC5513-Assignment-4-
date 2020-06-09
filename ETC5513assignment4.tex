@@ -29,46 +29,6 @@
 \geometry{a4paper, centering, text={16cm,24cm}}
 \usepackage[style=authoryear-comp,]{biblatex}
 \addbibresource{references.bib}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
@@ -350,51 +310,7 @@
 
 \section*{Methodology}
 
-\section*{migrants-education}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fileb1 <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/DIOC_2015_16_File_B_1.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fileb1cleaned <-}\StringTok{ }\NormalTok{fileb1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}
-  \DataTypeTok{sex =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    sex }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "male"}\NormalTok{,}
-\NormalTok{    sex }\OperatorTok{==}\StringTok{ "2"}\OperatorTok{~}\StringTok{ "female"}
-\NormalTok{    ),}
-  \DataTypeTok{edu_lfs =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    edu_lfs }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "low"}\NormalTok{,}
-\NormalTok{    edu_lfs }\OperatorTok{==}\StringTok{ "2"} \OperatorTok{~}\StringTok{ "medium"}\NormalTok{,}
-\NormalTok{    edu_lfs }\OperatorTok{==}\StringTok{ "3"} \OperatorTok{~}\StringTok{ "high"}\NormalTok{,}
-\NormalTok{    edu_lfs }\OperatorTok{==}\StringTok{ "99"} \OperatorTok{~}\StringTok{ "unknown"}
-\NormalTok{  ),}
-  \DataTypeTok{dos_lfs =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "0"} \OperatorTok{~}\StringTok{ "native-born"}\NormalTok{,}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "five-years-or-less"}\NormalTok{,}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "2"} \OperatorTok{~}\StringTok{ "five-to-ten-years"}\NormalTok{,}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "3"} \OperatorTok{~}\StringTok{ "more-than-ten-years"}\NormalTok{,}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "23"} \OperatorTok{~}\StringTok{ "more-than-five-years"}\NormalTok{,}
-\NormalTok{    dos_lfs }\OperatorTok{==}\StringTok{ "99"} \OperatorTok{~}\StringTok{ "unknown"}\NormalTok{,}
-\NormalTok{  ),}
-  \DataTypeTok{oecd =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    oecd }\OperatorTok{==}\StringTok{ "0"} \OperatorTok{~}\StringTok{ "non-member"}\NormalTok{,}
-\NormalTok{    oecd }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "member"}
-\NormalTok{  ),}
-  \DataTypeTok{oecdb =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    oecdb }\OperatorTok{==}\StringTok{ "0"} \OperatorTok{~}\StringTok{ "non-member"}\NormalTok{,}
-\NormalTok{    oecdb }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "member"}
-\NormalTok{  ),}
-  \DataTypeTok{fborn =} \KeywordTok{case_when}\NormalTok{(}
-\NormalTok{    fborn }\OperatorTok{==}\StringTok{ "0"} \OperatorTok{~}\StringTok{ "native-born"}\NormalTok{,}
-\NormalTok{    fborn }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{~}\StringTok{ "foreign-born"}\NormalTok{,}
-\NormalTok{    fborn }\OperatorTok{==}\StringTok{ "99"} \OperatorTok{~}\StringTok{ "unknown"}
-\NormalTok{  )}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
+\section* {migrants-education}
 
 In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. \textcite{hawthorne2010valuable} states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the ``two-step-migration'' by \textcite{hawthorne2010valuable}.
 
@@ -412,29 +328,6 @@ The level of education has been categorized using a broad three-category classif
 - medium
 - high
 - unknown
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#filter AUS residents}
-\NormalTok{aus_b1 <-}\StringTok{ }\NormalTok{fileb1cleaned }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(country }\OperatorTok{==}\StringTok{ "AUS"}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(dos_lfs,edu_lfs) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{sum}\NormalTok{(number))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{aus_b1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dos_lfs,}
-                     \DataTypeTok{y =}\NormalTok{ edu_lfs)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_tile}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{fill =}\NormalTok{ count)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Duration of Stay"}\NormalTok{,}
-       \DataTypeTok{y =} \StringTok{"Level of Education"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\StringTok{"five-years-or-less"}\NormalTok{, }\StringTok{"five-to-ten-years"}\NormalTok{, }\StringTok{"more-than-ten-years"}\NormalTok{, }\StringTok{"native-born"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_y_discrete}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{, }\StringTok{"medium"}\NormalTok{, }\StringTok{"high"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_fill_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{comma)}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf}
 
