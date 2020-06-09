@@ -67,17 +67,6 @@ library(naniar)
 fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
 ```
 
-```{r}
-# missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
-vis_miss(fileb1 %>%
-  replace_with_na(replace =
-                    list(edu_lfs = 99,
-                         dos_lfs = 99,
-                         fborn = 99)
-                  )
-  )
-```
-
 ```{r cleaning-data}
 fileb1cleaned <- fileb1 %>% mutate(
   sex = case_when(
@@ -112,6 +101,18 @@ fileb1cleaned <- fileb1 %>% mutate(
     fborn == "99" ~ "unknown"
   )
   )
+```
+
+```{r}
+# missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
+vis_miss(filter(fileb1, country == "AUS") %>%
+  replace_with_na(replace =
+                    list(edu_lfs = 99,
+                         dos_lfs = 99,
+                         fborn = 99)
+                  )
+  )
+
 ```
 
 
