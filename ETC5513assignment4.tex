@@ -32,6 +32,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -300,14 +309,13 @@
 \begin{itemize}
 \tightlist
 \item
-  Visual summary of corona virus cases and deaths rates in the following countries
-\item
-  Please meention about the license part in collab
+  Looking at the Skill level, Occupations across the globe
 \end{itemize}
 
 \begin{enumerate}
-   \item Italia
-   \item Germany
+   \item Graph for Skill Level
+   \item Graph for Overqulaified 
+   \item Table for different Occupations
  \end{enumerate}
 
 \section*{Introduction}
@@ -324,11 +332,47 @@ What is ISCED ?
 The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
 \end{quote}
 
-\section*{Abstract}
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
+\caption{\label{fig:skill}Types of Skill}
+\end{figure}
 
-\section*{Methodology}
+In figure \ref{fig:skill}
 
-\section*{References}
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
+\caption{\label{fig:qual}Occupation Types}
+\end{figure}
+
+In figure \ref{fig:qual}
+
+\begin{table}
+
+\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
+\midrule
+Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
+Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
+Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
+Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
+Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
+\addlinespace
+Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
+Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
+Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
+Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
+Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+In table \ref{tab:occupa}
 
 \printbibliography
 

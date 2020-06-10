@@ -82,7 +82,7 @@ What is ISCED ?
 
 >The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
 
-```{r, echo=FALSE, message}
+```{r, echo=FALSE}
 dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
 ```
 
@@ -134,7 +134,8 @@ dat1 <- dat %>%
                         ))
 ```
 
-```{r}
+
+```{r skill, fig.cap= "Types of Skill"}
 sum_dat1 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
   dplyr::filter(Skill != "Unknown") %>% 
   group_by(Continent, Skill) %>% 
@@ -144,26 +145,10 @@ ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
   geom_bar(stat="identity", position=position_dodge()) +
   scale_fill_viridis_d() +
   theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Skill Level in different Continents across the Globe")
+  ggtitle("Skill Level in different Continents across the Globe") + xlab("Continent") + ylab("Number of Migrants")
 ```
 
-
-```{r}
-sum_dat2 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
-  dplyr::filter(Qualification != "Unknown") %>% 
-  group_by(Continent, Qualification) %>% 
-  summarise(tot = sum(number), na.rm = TRUE)
-
-ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
-  geom_bar(stat="identity", position=position_dodge()) +
-  scale_fill_viridis_d() +
-  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Qual Level in different Continents across the Globe")
-```
-
-```{r}
-dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
-        group_by(Continent, Occupations) %>% 
+> In figure \@ref(fig:skill) talks about the different **Skill Levels**. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that **Europe** have the highest number of migrants with all these skill levels. **North America** has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. **South America** have more people with skill level 02 followed by skill level 03 and skill level 01.  **Oceania** has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in **Asia** have skill level 02 and skill level 03. **Africa** has very migrants with all the skill levels.group_by(Continent, Occupations) %>% 
         summarise(tot = (sum(number , na.rm = TRUE)))
 ```
 
@@ -171,23 +156,19 @@ dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>%
  dat4 <- pivot_wider(dat3, names_from = Continent, values_from = tot)
 ```
 
-
-```{r}
+```{r occupa}
 table <- dat4 %>%
   dplyr::select(-Unknown)  
 
 knitr::kable(
 table[1:10,], booktabs = TRUE,
-  caption = 'TABLE DISPLAYING THE TOP 50 COLLEGES WORLDWIDE') %>% 
-  kable_styling(bootstrap_options = c("striped", "hover"))
+  caption = 'List of Occupations that people engage in after Migration') %>% 
+  kable_styling(bootstrap_options = c("striped", "hover") , latex_options = "scale_down")
 
 ```
 
-\section*{Abstract}
+In table \@ref(tab:occupa) 
 
-\section*{Methodology}
-
-\section*{References}
 
 
 
