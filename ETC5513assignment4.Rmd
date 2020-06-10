@@ -62,6 +62,9 @@ library(naniar)
 
 \section*{Methodology}
 
+
+\clearpage
+
 \section*{Gender Gap in Migration}
 
 
@@ -70,6 +73,8 @@ library(naniar)
 file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
 
 ```
+
+Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
 
 ```{r datacleaning , echo = FALSE, message = FALSE}
 whomigrates<- file1 %>% 
@@ -129,22 +134,27 @@ whomigrates<- file1 %>%
 
 ```
 
-
+The table \@ref(tab:topdestinations) depicts the preferred destinations for migration in the year 2015/16. Historically, the USA have been the most popular destination for migration and has remained the same in the year 2015-16, with the most preferred destinations being the USA, Japan, and Mexico across all ages. 
 
 ```{r topdestinations, echo = FALSE, message = FALSE, warning=FALSE}
 
-top_10 <- whomigrates %>%  mutate(
+top_10 <- whomigrates %>%  
+  mutate(
          sex=as.factor(sex),
          oecd=as.factor(oecd),#oecd resident
          oecdb=as.factor(oecdb),#oecd born
          age_lfs=as.factor(age_lfs),
          edu_lfs =as.factor(edu_lfs)
          ) %>% 
-  group_by(country) %>% summarise(Immigrant_Count=sum(number,na.rm=T)) %>% arrange(desc(Immigrant_Count)) %>% head(10)  
+  group_by(country) %>% 
+  summarise(migrant_Count=
+              sum(number,na.rm=T)) %>%
+  arrange(desc(migrant_Count)) %>%
+  head(10) 
   
   top_10 %>% 
    
-    mutate( country =
+    mutate(country =
     case_when(
     str_detect(country,"USA") ~ "United States of America",
     str_detect(country,"JPN") ~ "Japan",
@@ -155,16 +165,37 @@ top_10 <- whomigrates %>%  mutate(
      str_detect(country,"GBR") ~  "United Kingdom",
      str_detect(country,"ITA") ~  "Italy",
      str_detect(country,"KOR") ~  "Korea",
-     str_detect(country,"ESP") ~  "Spain",
-  ))%>% rename(Country = country) %>%
-  kable("latex", booktabs = T,caption="Top 10 destinations") %>% 
-kable_styling(latex_options= c("striped","condensed"),full_width = F)
+     str_detect(country,"ESP") ~  "Spain"
+  ))  %>% 
+    rename(Country = country) %>%
+     kable("latex", 
+        booktabs = T,
+        caption="Top 10 destinations") %>% 
+kable_styling(latex_options= c("striped",
+                               "condensed"),
+              full_width = F) 
 
+  
+  fm <- whomigrates %>% 
+  mutate(
+         sex=as.factor(sex),
+         oecd=as.factor(oecd),#oecd resident
+         oecdb=as.factor(oecdb),#oecd born
+         age_lfs=as.factor(age_lfs)
+         ) %>% group_by(sex) %>% 
+  summarise(n=sum(number,na.rm = T)) 
+ percent<- fm %>% pivot_wider(names_from = sex,values_from = n) %>%
+   mutate(pf= (Female/(Female+Male)*100),
+             pm=(Male/(Female+Male)*100)
+                 )            
 ```
 
-
+Among the international migrants, `r round(percent$pf,2)` % are females and `r round(percent$pm,2)` % are males. Figure \@ref(fig:gendergap) shows the gender gap in each country's migrant population and it is observed that in 2015-16, women constituted more in the migrant population especially in the top preferred destinations like the USA, Japan, etc whereas the gap is relatively low in countries like Belgium, Finland, etc. 
 
 ```{r gendergap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population in countries" , fig.width=10}
+
+
+                                        
 
 options(scipen=999)
 gendergap <- whomigrates %>% 
@@ -174,23 +205,32 @@ gendergap <- whomigrates %>%
          oecdb=as.factor(oecdb),#oecd born
          age_lfs=as.factor(age_lfs)
          ) %>% 
-  group_by(sex,country)%>% summarise(n=sum(number,na.rm = T)) 
+  group_by(sex,country)%>%
+  summarise(n=sum(number,na.rm = T)) 
    
   gendergap %>% 
-    ggplot(aes(x= fct_reorder(country,n),y=n,fill= sex) )+
+    ggplot(aes(x= fct_reorder(country,n),
+               y=n,
+               fill= sex) )+
     geom_col(position = "dodge")+ 
-    theme_bw()+theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
-    scale_y_continuous(labels = comma) + xlab("Destination Country") + ylab("Number of Immigrants")
+    theme_bw()+theme(axis.text.x = element_text(angle = 90, 
+                                                hjust = 1)) + 
+    scale_y_continuous(labels = comma) +
+    xlab("Destination Country") + 
+    ylab("Number of Migrants")
     
 
 
 
 ```
 
+In 2015-16, the most number of migrants fell in the age group 25-64, with females being higher in number compared to males in countries like the USA, Mexico, Germany, etc. In countries like Japan, Korea and Spain it can be seen that there is no gender gap in the migrant population of age group 25-64 whereas in countries like Poland and Turkey the number of males is higher than females for the same age group. 
+Amongst the age group 15-24, there is a relatively low gender difference in the migrant population compared to the other age groups and the trend is uniform in almost all the countries whereas amongst the migrants who are 65 years old and above, the number of females is higher than that of males in the USA, Japan , Italy, etc and Mexico being one of the top destinations for migration, saw an influx of an equal number of males and females aged over 65 in the year 2015-16. 
 
 
 
 ```{r agegap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population across age groups in countries " , fig.width=7}
+
 agegap <- whomigrates  %>% 
   mutate(
          sex=as.factor(sex),
@@ -204,18 +244,19 @@ agegap <- whomigrates  %>%
   `%notin%` <- Negate(`%in%`)
  agegap%>%  
   filter(age_lfs %notin% c("0-14","Unknown")) %>%
-  ggplot(aes(x = country,y = total,fill = sex)) +
+  ggplot(aes(x = fct_reorder(country,total),y = total,fill = sex)) +
 
   
     geom_col(position = "dodge")+ 
     theme_bw()+theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_colour_brewer(palette = "Set1")+ 
     scale_y_continuous(labels = comma) +
-   facet_wrap(~age_lfs,nrow = 3) + ylab("Number of Immigrants") +
+   facet_wrap(~age_lfs,nrow = 3) + ylab("Number of Migrants") +
    xlab("Country")
 
 
 ```
+
 
 
 
