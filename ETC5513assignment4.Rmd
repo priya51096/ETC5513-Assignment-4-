@@ -186,7 +186,7 @@ table[1:10,], booktabs = TRUE,
 
 ```
 
-In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master)
+In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
 
 
 
