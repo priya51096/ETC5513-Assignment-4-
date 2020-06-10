@@ -284,7 +284,14 @@
 \usepackage{setspace}
 \setstretch{1.5}
 
-%% Any special functions or other packages can be loaded here.
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}%% Any special functions or other packages can be loaded here.
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -310,7 +317,7 @@ It gives, us immense pleasure and sincere gratitue to Dr Patricia Menéndez lect
 
 \section*{Abstract}
 
-There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces, and \textbf{Migration} is one important factor that enhances globalisation and help in cultural, socio and economic changes in a large scale. This report will focus on the certain aspects of migration.
+There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces. \textbf{Migration} is one important factor that enhances globalisation and helps in cultural, socio and economic changes in a large scale. This report will focus on the certain aspects of migration.
 
 \section*{Introduction}
 
@@ -483,15 +490,7 @@ The level of education has been categorized using a broad three-category classif
 - medium\\
 - high
 
-<<<<<<< HEAD
 However the duration of stay of 25.9\% of Australian residents is unknown, while the education level of 24.6\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
-=======
-<<<<<<< HEAD
-However the duration of stay of 26\% of Australian residents is unknown, while the education level of 25\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
-=======
-However the duration of stay of 25.9\% of Australian residents is unknown, while the education level of 24.6\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
->>>>>>> def8da9e9026f20a34ca801f7a151c5c063a32f3
->>>>>>> 27b7018d5c637b7fb741166cab8a6c22e109eb82
 
 \begin{figure}
 \centering
