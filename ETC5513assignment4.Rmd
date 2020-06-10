@@ -229,7 +229,7 @@ Amongst the age group 15-24, there is a relatively low gender difference in the 
 
 
 
-```{r agegap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population across age groups in countries " , fig.width=7}
+```{r agegap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population across age groups in countries " , fig.width=8}
 
 agegap <- whomigrates  %>% 
   mutate(
@@ -244,7 +244,7 @@ agegap <- whomigrates  %>%
   `%notin%` <- Negate(`%in%`)
  agegap%>%  
   filter(age_lfs %notin% c("0-14","Unknown")) %>%
-  ggplot(aes(x = fct_reorder(country,total),y = total,fill = sex)) +
+  ggplot(aes(x = country,y = total,fill = sex)) +
 
   
     geom_col(position = "dodge")+ 
@@ -278,3 +278,21 @@ Unavailability of data on variables like age, skills,occupation ,labour force st
  The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
  
  \end{enumerate}
+ 
+ 
+\section*{Conclusions} 
+
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+
+\end{enumerate}
+
+\nocite{*}
+ 
