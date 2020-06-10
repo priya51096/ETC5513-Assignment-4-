@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.9)  10 JUN 2020 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.9)  10 JUN 2020 21:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1670,11 +1670,11 @@ Package logreq Info: Writing requests to 'ETC5513assignment4.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
  ) 
 Here is how much of TeX's memory you used:
- 26061 strings out of 482401
- 431957 string characters out of 5945360
+ 26065 strings out of 482401
+ 431997 string characters out of 5945360
  1098202 words of memory out of 5000000
  41267 multiletter control sequences out of 15000+600000
- 628380 words of font info for 202 fonts, out of 8000000 for 9000
+ 628615 words of font info for 205 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  45i,14n,90p,1532b,792s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/priya/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnan
@@ -1689,7 +1689,7 @@ fb><c:/Users/priya/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/f
 vsb8a.pfb><c:/Users/priya/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
 /bera/fvsr8a.pfb><c:/Users/priya/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 /public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on ETC5513assignment4.pdf (4 pages, 118488 bytes).
+Output written on ETC5513assignment4.pdf (4 pages, 118538 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
