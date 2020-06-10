@@ -53,6 +53,7 @@ library(bookdown)
 library(visdat)
 library(scales)
 library(gt)
+library(naniar)
 ```
 
 
@@ -67,6 +68,18 @@ library(gt)
 
 ```{r reading-data}
 fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
+```
+
+```{r}
+# missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
+vis_miss(filter(fileb1, country == "AUS") %>%
+  replace_with_na(replace =
+                    list(edu_lfs = 99,
+                         dos_lfs = 99,
+                         fborn = 99)
+                  )
+  )
+
 ```
 
 ```{r cleaning-data}
@@ -146,9 +159,6 @@ Figure \@ref(fig:tile-plot-edu-vs-duration) shows the breakdown of Australian re
 
 It's obvious that the highest counts of Australian residents are natives, and is interesting that a majority of them have a medium level of education, followed by natives having a higher level of education and only a few of them having a low level of education.
 It's also interesting how the numbers of Ausralian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
-
-
-
 
 
 ```{r table-percent-levels-of-education}
