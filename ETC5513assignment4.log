@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  10 JUN 2020 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  10 JUN 2020 13:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1622,11 +1622,11 @@ Package logreq Info: Writing requests to 'ETC5513assignment4.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 26105 strings out of 482913
- 432206 string characters out of 5957764
- 1090281 words of memory out of 5000000
+ 26113 strings out of 482913
+ 432294 string characters out of 5957764
+ 1091281 words of memory out of 5000000
  40827 multiletter control sequences out of 15000+600000
- 627110 words of font info for 190 fonts, out of 8000000 for 9000
+ 627580 words of font info for 196 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,14n,90p,954b,1430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnans
@@ -1640,7 +1640,7 @@ ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/
 Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pf
 b><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvs
 r8a.pfb>
-Output written on ETC5513assignment4.pdf (4 pages, 112823 bytes).
+Output written on ETC5513assignment4.pdf (4 pages, 113034 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream

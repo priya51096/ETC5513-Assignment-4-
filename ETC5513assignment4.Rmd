@@ -72,13 +72,16 @@ fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
 
 ```{r}
 # missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
-vis_miss(filter(fileb1, country == "AUS") %>%
+fileb1_missing <- filter(fileb1, country == "AUS") %>%
   replace_with_na(replace =
                     list(edu_lfs = 99,
                          dos_lfs = 99,
                          fborn = 99)
                   )
-  )
+
+variable_miss_pct <- miss_var_summary(fileb1_missing) %>%
+  mutate(pct_miss = percent(pct_miss/100))
+
 
 ```
 
@@ -120,7 +123,7 @@ fileb1cleaned <- fileb1 %>% mutate(
 
 In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. @hawthorne2010valuable states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the "two-step-migration" by @hawthorne2010valuable.
 
-This section will analyse the education levels of current residents of Australia.
+This section will analyse the education levels of current residents of Australia categorized by their duration of stay in the country.
 
 The dataset provides information on the education levels of Australian residents and their duration of stay within the country.  
 The residents of Australia have been categorized based on their duration of stay within the country as  
@@ -128,12 +131,13 @@ The residents of Australia have been categorized based on their duration of stay
 - less than 5 years  
 - between 5 - 10 years  
 - more than 10 years  
-- unknown  
 The level of education has been categorized using a broad three-category classification as  
 - low  
 - medium  
-- high  
-- unknown  
+- high
+
+However the duration of stay of `r variable_miss_pct %>% filter(variable == "dos_lfs") %>% select(pct_miss)` of Australian residents is unknown, while the education level of `r variable_miss_pct %>% filter(variable == "edu_lfs") %>% select(pct_miss)` residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
+ 
 
 ```{r summarise-aus-data}
 #filter AUS residents
