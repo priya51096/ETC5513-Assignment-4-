@@ -62,6 +62,10 @@ library(tinytex)
 
 \section*{Methodology}
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
+```
+
 ```{r}
 C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
 C
