@@ -62,7 +62,7 @@ library(visdat)
 
 \section*{Acknowledgements}
 
-It gives, us immense pleasure and sincere gratitue to Dr Patricia Menéndez lectures and the tutorial sessions conducted by the tutors Stephanie Kobakian Mark Dulhunty, and Pablo Montero Manso. It only because of the culminative efforts that we am in the position to produce this report and display our knowledge over the github tools.
+Our sincere gratitue goes out to Dr.Patricia Menéndez and the tutors Stephanie Kobakian, Mark Dulhunty and Pablo Montero Manso for their guidance and support during the semester. Their culminative efforts have put us in a position where we are able to collaboratively produce this report and while demonstrating our ability to use git tools.
 
 \section*{Abstract}
 
