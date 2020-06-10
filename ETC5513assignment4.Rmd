@@ -80,20 +80,21 @@ C2 <- C1 %>% mutate(employment = case_when(str_detect(labour_force_status
 , "99")~ "unknown"))
 C2
 ```
+
+
 ```{r}
 GG <- C2 %>% select(!sex) %>% pivot_wider(names_from = gender, values_from = number) %>% select(country, male, female, employment)
 ```
-```
+
 ```{r}
 GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
 ```
+
 
 ```{r}
 GGM1 <- GGM %>% mutate(unemployrateM = (unemployed/(employed + inactive + unemployed)*100)) %>% select(country,unemployrateM)
 GGM1
 ```
-
-
 
 
 ```{r}
@@ -104,9 +105,10 @@ GGF <- GG %>% group_by(country, employment) %>% summarise(countM = sum(female, n
 GGF1 <- GGF %>% mutate(unemployrateF = (unemployed/(employed + inactive + unemployed))*100) %>% select(country,unemployrateF)
 GGF1
 ```
-```{r}
+
+```{r unemployment_gendergap}
 GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemployrateF - unemployrateM)
-GGMF
+GGMF %>% kable(caption = "unemployment gendergap")
 ```
 
 
@@ -143,7 +145,7 @@ group_by(country, educationlevel) %>%
   summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
   mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
   select(country, educationlevel, unemployRATE)
-C4
+C4 %>% kable(caption = "unemployrate on different level of education")
 
 ```
 
