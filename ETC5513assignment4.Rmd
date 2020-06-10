@@ -117,7 +117,9 @@ GGMF %>% kable(caption = "unemployment gendergap")
 \newpage
 
 ```{r GAP, fig.width=11, fig.height=10, fig.cap = "unemployment gender gap", messgae =  FALSE}
-ggplot(filter(GGMF), aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
+
+GGMF%>% filter(country != "LUX") %>% filter(country!= "KOR") %>%
+ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
   geom_col()
 ```
 
@@ -153,12 +155,12 @@ C4 %>% head(40) %>% kable(caption = "unemployrate on different level of educatio
 
 ```
 
-\newpage
+\pagebreak
 
 ```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level" }
-ggplot(filter(C4), aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
+C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot( aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
-\newpage
+
 Analysis:
   
   
