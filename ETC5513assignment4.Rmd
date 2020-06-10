@@ -598,7 +598,7 @@ GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemplo
 GGMF %>% head(10) %>% kable(caption = "unemployment gendergap")
 ```
 
-```{r GAP, fig.width=11, fig.height=10, fig.cap = "unemployment gender gap", messgae =  FALSE}
+```{r GAP, fig.width=11, fig.height=7, fig.cap = "unemployment gender gap", messgae =  FALSE}
 
 GGMF%>% filter(country != "LUX") %>% filter(country!= "KOR") %>%
 ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
@@ -629,7 +629,7 @@ group_by(country, educationlevel) %>%
   summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
   mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
   select(country, educationlevel, unemployRATE)
-C5 <- C4 %>% pivot_wider(names_from = educationlevel, values_from = unemployRATE)
+C5 <- C4 %>% pivot_wider(names_from = educationlevel, values_from = unemployRATE) %>% select(!unknown)
 C5 %>% head(10) %>% kable(caption = "unemployrate on different level of education")
 ```
 
