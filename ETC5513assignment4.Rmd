@@ -151,43 +151,26 @@ It's also interesting how the numbers of Ausralian residents who have been in th
 
 
 
-```{r}
-aus_b1_sex <- fileb1cleaned %>% filter(country == "AUS") %>%
-  group_by(dos_lfs,edu_lfs, sex) %>%
-  summarise(count = sum(number)) %>%
-  ungroup() %>%
+```{r table-percent-levels-of-education}
+aus_b1 %>%
+  filter(dos_lfs != "unknown") %>%
   pivot_wider(values_from = count,
               names_from = edu_lfs) %>%
-  select(dos_lfs, sex, high, medium, low, unknown) %>%
-  rename_with(stringr::str_to_title)
-
-
-aus_b1_sex %>% 
-  group_by(Dos_lfs) %>% 
-  gt(rowname_col = "Sex") %>% 
-  row_group_order(
-    groups = c("native-born",
-               "more-than-ten-years", 
-               "five-to-ten-years", 
-               "five-years-or-less",
-               "unknown")
-            ) %>%
-  tab_spanner(label = "Education", 
-              columns = matches("High|Low|Medium|Unknown")) %>%
-  tab_stubhead(label = "Duration of Stay") %>%
-  tab_style(
-    style = cell_text(style = "oblique", weight = "bold"),
-    locations = cells_row_groups())  %>%
-  tab_style(
-    style = cell_text(align = "right", style = "italic", weight = "bold"),
-    locations = cells_column_labels(
-      columns = vars(High, Low, Medium, Unknown)
-    ))  %>%
-  tab_style(
-    style = cell_text(align = "right", weight = "bold"),
-    locations = cells_stub())
-
+  mutate(h_prcnt = percent(high/sum(high+low+medium+unknown)),
+         m_prcnt = percent(medium/sum(high+low+medium+unknown)),
+         l_prcnt = percent(low/sum(high+low+medium+unknown)),
+         u_prcnt = percent(unknown/sum(high+low+medium+unknown))) %>%
+  select(-high, -medium, -low, -unknown) %>%
+  rename("Duration of stay" = dos_lfs,
+         "High level of education (%)" = h_prcnt,
+         "Medium level of education (%)" = m_prcnt,
+         "Low level of education (%)" = l_prcnt,
+         "Unknown level of education (%)" = u_prcnt) %>%
+  kable(caption = "Percentages of Australian residents with different levels of education over each category of duration of stay") %>%
+  kable_styling(latex_options = c("HOLD_position"))
 ```
 
+A breakdown of Australian residents with different durations of stay, into their level of education is represented in table \@ref(tab:table-percent-levels-of-education). It can be seen that the majority of individuals who have obtained residency in Australia recently have a high level of education while only a few of them have a low level of education. A significant increase in percentages of individuals with higher levels of education obtaining residency in Australia can also be seen from table \@ref(tab:table-percent-levels-of-education). Most native-Australians (41%) have a medium level of education, while others with shorter durations of stay in Australia have much higher levels of education.
 
-@green2007immigrant states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in overeducation of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \@ref(fig:tile-plot-edu-vs-duration).
+
+@green2007immigrant states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in overeducation of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \@ref(fig:tile-plot-edu-vs-duration) and table \@ref(tab:table-percent-levels-of-education).
