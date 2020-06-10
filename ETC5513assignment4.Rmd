@@ -141,6 +141,12 @@ aus_b1 %>% ggplot(aes(x = dos_lfs,
   scale_fill_continuous(labels=comma)
 ```
 
+Figure \@ref(fig:tile-plot-edu-vs-duration) shows the breakdown of Australian residents based on their duration of stay in Australia and their level of education; the higher counts of residents are represented by light blue and the lower number of residents are represented by dark blue. The dataset contains a few unknowns about the Australian resident, some on the level of education and some on the duration of stay, which is also represented in figure \@ref(fig:tile-plot-edu-vs-duration).
+
+It's obvious that the highest counts of Australian residents are natives, and is interesting that a majority of them have a medium level of education, followed by natives having a higher level of education and only a few of them having a low level of education.
+It's also interesting how the numbers of Ausralian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
+
+
 ```{r}
 aus_b1_sex <- fileb1cleaned %>% filter(country == "AUS") %>%
   group_by(dos_lfs,edu_lfs, sex) %>%
