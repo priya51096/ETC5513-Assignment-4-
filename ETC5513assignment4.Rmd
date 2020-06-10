@@ -43,7 +43,7 @@ output:
 ---
 
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, message=FALSE, warning=FALSE)
 # Libraries
 
 library(tidyverse)
@@ -52,6 +52,7 @@ library(kableExtra)
 library(bookdown)
 library(visdat)
 library(scales)
+library(gt)
 ```
 
 
@@ -147,14 +148,46 @@ It's obvious that the highest counts of Australian residents are natives, and is
 It's also interesting how the numbers of Ausralian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
 
 
+
+
+
 ```{r}
 aus_b1_sex <- fileb1cleaned %>% filter(country == "AUS") %>%
   group_by(dos_lfs,edu_lfs, sex) %>%
-  summarise(count = sum(number))
+  summarise(count = sum(number)) %>%
+  ungroup() %>%
+  pivot_wider(values_from = count,
+              names_from = edu_lfs) %>%
+  select(dos_lfs, sex, high, medium, low, unknown) %>%
+  rename_with(stringr::str_to_title)
 
-with(aus_b1_sex, ftable(xtabs(count ~ dos_lfs + sex + edu_lfs)))
+
+aus_b1_sex %>% 
+  group_by(Dos_lfs) %>% 
+  gt(rowname_col = "Sex") %>% 
+  row_group_order(
+    groups = c("native-born",
+               "more-than-ten-years", 
+               "five-to-ten-years", 
+               "five-years-or-less",
+               "unknown")
+            ) %>%
+  tab_spanner(label = "Education", 
+              columns = matches("High|Low|Medium|Unknown")) %>%
+  tab_stubhead(label = "Duration of Stay") %>%
+  tab_style(
+    style = cell_text(style = "oblique", weight = "bold"),
+    locations = cells_row_groups())  %>%
+  tab_style(
+    style = cell_text(align = "right", style = "italic", weight = "bold"),
+    locations = cells_column_labels(
+      columns = vars(High, Low, Medium, Unknown)
+    ))  %>%
+  tab_style(
+    style = cell_text(align = "right", weight = "bold"),
+    locations = cells_stub())
+
 ```
 
 
-
-
+@green2007immigrant states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in overeducation of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \@ref(fig:tile-plot-edu-vs-duration).

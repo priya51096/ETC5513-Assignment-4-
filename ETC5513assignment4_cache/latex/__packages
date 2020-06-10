@@ -12,3 +12,5 @@ kableExtra
 bookdown
 visdat
 scales
+gt
+knitr
