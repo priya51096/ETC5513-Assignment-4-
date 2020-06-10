@@ -70,6 +70,30 @@ There is no doubt that globalization is here to stay and that it continues to in
 
 \section*{Introduction}
 
+Migration is the movement of people from one place to another with the intentions of settling, permanently or temporarily, at a new location. We are looking at a dataset from the database of OCED. In order to understand further analysis let us look at some of the important defination required to understand this report.
+
+What is OECD ?
+
+The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
+
+What is ISCED ?
+
+The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
+
+What is ISCO ?
+
+The International Standard Classification of Occupations is an International Labour Organization classification structure for organizing information on labour and jobs.
+
+This report focuses on the migration dataset from the year 2015 to 2016. The OECD makes data available for use and consultation by the public under the license **CC BY-NC-SA 3.0 IGO**. This license allows us to share and modify data apart from commerical uses and has strict restrictions of attribution.
+
+![Migration Facts and Figures](data/image.png)
+
+\section*{Motivation}
+
+\section*{Data Source}
+
+\section*{Methodology}
+
 
 \section*{Research Questions}
   
