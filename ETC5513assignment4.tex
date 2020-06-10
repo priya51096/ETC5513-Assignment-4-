@@ -32,6 +32,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -190,7 +199,7 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Priya Ravindra Dingorkar}\\ {\sf\large BE in Computer Enginnering, Pursing Master of Business Analytics\\[0.5cm]} \sf\Large\textbf{ Aarathy Babu}\\ {\sf\large B.Tech\\[0.5cm]} \sf\Large\textbf{ Junhao Wang}\\ {\sf\large Accounting\\[0.5cm]} \sf\Large\textbf{ XXX XXX (Please add your details Dilinie)}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Priya Ravindra Dingorkar}\\ {\sf\large BE in Computer Enginnering, Pursing Master of Business Analytics\\[0.5cm]} \sf\Large\textbf{ Aarathy Babu}\\ {\sf\large B.Tech\\[0.5cm]} \sf\Large\textbf{ Junhao Wang}\\ {\sf\large B.Accounting\\[0.5cm]} \sf\Large\textbf{ XXX XXX (Please add your details Dilinie)}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
@@ -297,9 +306,210 @@
 
 \section*{Introduction}
 
+This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
+
 \section*{Abstract}
 
 \section*{Methodology}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-9}unemployment gendergap}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+country & unemployrateM & unemployrateF & unemployrateGAP\\
+\hline
+AUS & 4.862303 & 4.0115099 & -0.8507930\\
+\hline
+AUT & 5.336735 & 3.9353913 & -1.4013437\\
+\hline
+BEL & 4.347939 & 3.2985616 & -1.0493775\\
+\hline
+CAN & 5.778106 & 4.3270743 & -1.4510321\\
+\hline
+CHE & 3.865908 & 3.2144728 & -0.6514349\\
+\hline
+CHL & 4.809590 & 3.9577202 & -0.8518701\\
+\hline
+CZE & 2.396411 & 2.4515907 & 0.0551801\\
+\hline
+DEU & 2.936210 & 2.0469143 & -0.8892954\\
+\hline
+DNK & 2.148729 & 2.1059917 & -0.0427379\\
+\hline
+ESP & 10.985712 & 10.8943528 & -0.0913595\\
+\hline
+EST & 5.300859 & 3.4574224 & -1.8434366\\
+\hline
+FIN & 9.559730 & 6.8315897 & -2.7281404\\
+\hline
+FRA & 8.392850 & 7.8781252 & -0.5147248\\
+\hline
+GBR & 3.663103 & 2.8918511 & -0.7712517\\
+\hline
+GRC & 10.585938 & 7.4697667 & -3.1161718\\
+\hline
+HUN & 7.512527 & 5.7554851 & -1.7570423\\
+\hline
+IRL & 9.371130 & 6.6267541 & -2.7443755\\
+\hline
+ISL & 3.634079 & 3.1891160 & -0.4449626\\
+\hline
+ISR & 3.226836 & 2.9344538 & -0.2923819\\
+\hline
+ITA & 6.557226 & 5.1080372 & -1.4491892\\
+\hline
+JPN & 3.452669 & 1.6996869 & -1.7529817\\
+\hline
+KOR & NA & NA & NA\\
+\hline
+LUX & 46.543493 & 35.7410219 & -10.8024711\\
+\hline
+LVA & 7.869852 & 5.4260483 & -2.4438039\\
+\hline
+MEX & 3.497137 & 0.9523001 & -2.5448371\\
+\hline
+NLD & 3.881309 & 3.8180653 & -0.0632437\\
+\hline
+NOR & 2.147195 & 1.4721626 & -0.6750323\\
+\hline
+NZL & 3.579875 & 3.6812728 & 0.1013976\\
+\hline
+POL & 7.015866 & 5.7597853 & -1.2560810\\
+\hline
+PRT & 7.032256 & 5.9746734 & -1.0575825\\
+\hline
+SVK & 11.368361 & 8.7232843 & -2.6450766\\
+\hline
+SVN & 4.902322 & 4.6408436 & -0.2614786\\
+\hline
+SWE & 3.838277 & 3.0794607 & -0.7588166\\
+\hline
+TUR & 7.266447 & 4.5316713 & -2.7347755\\
+\hline
+USA & 3.955071 & 3.2786733 & -0.6763982\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/GAP-1.pdf}
+\caption{\label{fig:GAP}unemployment gender gap}
+\end{figure}
+
+Analysis:
+
+We can draw conlusion from \ref{fig:GAP} thatGenerally speaking, gender gap in unemployment rate does exist, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male.
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-11}unemployrate on different level of education}
+\centering
+\begin{tabular}[t]{l|l|r}
+\hline
+country & educationlevel & unemployRATE\\
+\hline
+AUS & high & 0.0354576\\
+\hline
+AUS & low & 0.0443595\\
+\hline
+AUS & medium & 0.0532527\\
+\hline
+AUS & unknown & 0.0358913\\
+\hline
+AUT & high & 0.0311428\\
+\hline
+AUT & low & 0.0701552\\
+\hline
+AUT & medium & 0.0457923\\
+\hline
+AUT & unknown & NaN\\
+\hline
+BEL & high & 0.0298011\\
+\hline
+BEL & low & 0.0431251\\
+\hline
+BEL & medium & 0.0461857\\
+\hline
+BEL & unknown & 0.0122354\\
+\hline
+CAN & high & 0.0452058\\
+\hline
+CAN & low & 0.0517304\\
+\hline
+CAN & medium & 0.0601727\\
+\hline
+CHE & high & 0.0328462\\
+\hline
+CHE & low & 0.0416613\\
+\hline
+CHE & medium & 0.0336930\\
+\hline
+CHL & high & 0.0179900\\
+\hline
+CHL & low & 0.0427796\\
+\hline
+CHL & medium & 0.0498058\\
+\hline
+CHL & unknown & 0.0527589\\
+\hline
+CZE & high & 0.0167868\\
+\hline
+CZE & low & 0.0409399\\
+\hline
+CZE & medium & 0.0226775\\
+\hline
+CZE & unknown & 0.0487416\\
+\hline
+DEU & high & 0.0160581\\
+\hline
+DEU & low & 0.0374303\\
+\hline
+DEU & medium & 0.0236941\\
+\hline
+DEU & unknown & 0.0093930\\
+\hline
+DNK & high & 0.0231097\\
+\hline
+DNK & low & 0.0177326\\
+\hline
+DNK & medium & 0.0225601\\
+\hline
+DNK & unknown & 0.0210787\\
+\hline
+ESP & high & 0.0880976\\
+\hline
+ESP & low & 0.1186934\\
+\hline
+ESP & medium & 0.1216533\\
+\hline
+ESP & unknown & 0.0000000\\
+\hline
+EST & high & 0.0286894\\
+\hline
+EST & low & 0.0441750\\
+\hline
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/ed_un-1.pdf}
+\caption{(\#fig:ed\_un)unemployment rate among different education level}
+\end{figure}
+
+Analysis:
+
+\ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+
+Limitation:
+There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
 
 \printbibliography
 
