@@ -63,7 +63,7 @@ library(tinytex)
 \section*{Methodology}
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE, warning = FALSE)
 ```
 
 ```{r}
@@ -108,9 +108,13 @@ GGF1 <- GGF %>% mutate(unemployrateF = (unemployed/(employed + inactive + unempl
 
 ```{r unemployment_gendergap}
 GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemployrateF - unemployrateM)
+```
+
+```{r}
 GGMF %>% kable(caption = "unemployment gendergap")
 ```
 
+\newpage
 
 ```{r GAP, fig.width=11, fig.height=10, fig.cap = "unemployment gender gap", messgae =  FALSE}
 ggplot(filter(GGMF), aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
@@ -145,16 +149,16 @@ group_by(country, educationlevel) %>%
   summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
   mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
   select(country, educationlevel, unemployRATE)
-C4 %>% kable(caption = "unemployrate on different level of education")
+C4 %>% head(40) %>% kable(caption = "unemployrate on different level of education")
 
 ```
 
+\newpage
 
 ```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level" }
 ggplot(filter(C4), aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
-
-
+\newpage
 Analysis:
   
   
