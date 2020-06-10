@@ -32,6 +32,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -190,7 +199,7 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Priya Ravindra Dingorkar}\\ {\sf\large BE in Computer Enginnering, Pursing Master of Business Analytics\\[0.5cm]} \sf\Large\textbf{ Aarathy Babu}\\ {\sf\large B.Tech\\[0.5cm]} \sf\Large\textbf{ Junhao Wang}\\ {\sf\large Accounting\\[0.5cm]} \sf\Large\textbf{ XXX XXX (Please add your details Dilinie)}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Priya Ravindra Dingorkar}\\ {\sf\large BE in CE \& Pursing Master of Business Analytics\\[0.5cm]} \sf\Large\textbf{ Aarathy Babu}\\ {\sf\large B.Tech\\[0.5cm]} \sf\Large\textbf{ Junhao Wang}\\ {\sf\large Accounting\\[0.5cm]} \sf\Large\textbf{ XXX XXX (Please add your details Dilinie)}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
@@ -295,11 +304,75 @@
 \begin{document}
 \titlepage
 
+\section*{Research Questions}
+
+\begin{itemize}
+\tightlist
+\item
+  Looking at the Skill level, Occupations across the globe
+\end{itemize}
+
+\begin{enumerate}
+   \item Graph for Skill Level
+   \item Graph for Overqulaified 
+   \item Table for different Occupations
+ \end{enumerate}
+
 \section*{Introduction}
 
-\section*{Abstract}
+What is OECD ?
 
-\section*{Methodology}
+\begin{quote}
+The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
+\end{quote}
+
+What is ISCED ?
+
+\begin{quote}
+The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
+\caption{\label{fig:skill}Types of Skill}
+\end{figure}
+
+In figure \ref{fig:skill} talks about the different \textbf{Skill Levels}. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that \textbf{Europe} have the highest number of migrants with all these skill levels. \textbf{North America} has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. \textbf{South America} have more people with skill level 02 followed by skill level 03 and skill level 01. \textbf{Oceania} has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in \textbf{Asia} have skill level 02 and skill level 03. \textbf{Africa} has very migrants with all the skill levels.
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
+\caption{\label{fig:qual}Occupation Types}
+\end{figure}
+
+In figure \ref{fig:qual}, Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, \textbf{North America} has the highest over qualified people, followed by \textbf{Europe}, \textbf{South America}, \textbf{Asia}, \textbf{Africa} and \textbf{Oceania}. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are \textbf{Europe}, \textbf{North America} and \textbf{Asia}
+
+\begin{table}
+
+\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
+\midrule
+Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
+Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
+Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
+Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
+Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
+\addlinespace
+Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
+Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
+Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
+Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
+Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+In table \ref{tab:occupa} we see the different occupation (will explain rest of it in master)
 
 \printbibliography
 
