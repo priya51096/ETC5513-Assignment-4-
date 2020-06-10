@@ -107,144 +107,22 @@ Dataset used in the report for analysis, has a lot of unknown values due to conf
 
 \section*{Methodology}
 
-Every migrant analyzes a few factors of the destination country before actually setttling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job oppurunities, what is the unemploymnet rate, what is the level of eductaion and their recoginition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on  four research questions, giving all of us a gist about the state of migration and migrants, across the world  
+Every migrant analyzes a few factors of the destination country before actually setttling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job oppurunities, what is the unemploymnet rate, what is the level of eductaion and their recoginition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on  four research questions, giving all of us a gist about the state of migration and migrants, across the world. 
 
 \section*{Research Questions}
 
 There research question we have aimed to answer are as follows: 
 
 - The top destinations for migration, the gender difference in migration in total and across different age groups
--Mine is to identify relationship between unemployment and education level, and the gender gap in unemployment
+- Identifying the relationship between unemployment and education level as well as the gender gap in unemployment
+- Analysing the level of education of residents of Australia versus the duration they have been in Australia.
+- Distribution of various skill levels, types of occupation and overqualified population across the globe in different continents
 
 
-
-\section*{Introduction}
-   This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
-
-What is OECD ?
-
-> The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
-
-What is ISCED ?
-
->The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
-
-```{r, echo=FALSE}
-dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
-```
-
-
-```{r}
-dat1 <- dat %>% 
-  mutate(Continent = case_when(
-     str_detect(regionb,"AFRI") ~ "Africa",
-     str_detect(regionb,"ASIA") ~ "Asia",
-     str_detect(regionb,"EURO") ~ "Europe",
-     str_detect(regionb,"NOAM") ~ "North America",
-     str_detect(regionb,"OCEA") ~ "Oceania",
-     str_detect(regionb,"SCAC") ~ "South America",
-     str_detect(regionb,"UNK") ~ "Unknown" 
- )) %>%
-  mutate(Sex = case_when(
-   str_detect(sex,"1") ~ "Male",
-   str_detect(sex,"2")~ "Female"
- )) %>%
-  mutate(Skill = case_when(
-    str_detect(skill_occ,"1") ~ "Skill Level 01",
-    str_detect(skill_occ,"2") ~ "Skill Level 02",
-    str_detect(skill_occ,"3") ~ "Skill Level 03",
-    str_detect(skill_occ,"99") ~ "Unknown"
-  )) %>%
-  mutate(Qualification = case_when(
-    str_detect(overqualified,"0") ~ "Not OverQualified",
-    str_detect(overqualified,"1") ~ "OverQualified",
-    str_detect(overqualified,"99") ~ "Unknown",
-  )) %>% 
-  mutate(Occupations = case_when(
-    str_detect(occ_1d,"0") ~ "Armed Forced Occupations",
-    str_detect(occ_1d,"1") ~ "Managerial Occupations",
-    str_detect(occ_1d,"2") ~ "Professional Occupations",
-    str_detect(occ_1d,"3") ~ "Technicians and Associate Professional Occupations",
-    str_detect(occ_1d,"4") ~ "Clerical Support Worker Occupations",
-    str_detect(occ_1d,"5") ~ "Service and Sales Worker Occupations",
-    str_detect(occ_1d,"6") ~ "Skilled Agricultural, Forestry and Fishery Occupations",
-    str_detect(occ_1d,"7") ~ "Craft and Related trade Occupations",
-    str_detect(occ_1d,"8") ~ "Plant and Machine Operators and Assembler Occupations",
-    str_detect(occ_1d,"9") ~ "Elementary Occupations",
-    str_detect(occ_1d,"99") ~ "Unknown"
-    )) %>% replace_with_na (replace =
-                    list(skill_occ = "Unknown",
-                         sex = "Unknown",
-                         regionb = "Unknown",
-                         overqualified = "Unknown",
-                         occ_1d = "Unknown"
-                        ))
-```
-
-
-```{r skill, fig.cap= "Types of Skill"}
-sum_dat1 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
-  dplyr::filter(Skill != "Unknown") %>% 
-  group_by(Continent, Skill) %>% 
-  summarise(tot = sum(number), na.rm = TRUE)
-
-ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
-  geom_bar(stat="identity", position=position_dodge()) +
-  scale_fill_viridis_d() +
-  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Skill Level in different Continents across the Globe") + xlab("Continent") + ylab("Number of Migrants")
-```
-
-In figure \@ref(fig:skill) talks about the different **Skill Levels**. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that **Europe** have the highest number of migrants with all these skill levels. **North America** has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. **South America** have more people with skill level 02 followed by skill level 03 and skill level 01.  **Oceania** has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in **Asia** have skill level 02 and skill level 03. **Africa** has very migrants with all the skill levels.
-
-```{r qual, fig.cap= "Occupation Types"}
-sum_dat2 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
-  dplyr::filter(Qualification != "Unknown") %>% 
-  group_by(Continent, Qualification) %>% 
-  summarise(tot = sum(number), na.rm = TRUE)
-
-ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
-  geom_bar(stat="identity", position=position_dodge()) +
-  scale_fill_viridis_d() +
-  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  ggtitle("Qualification Level in different Continents across the Globe") + xlab("Continent") + ylab("Number of Migrants")
-```
-
-In figure \@ref(fig:qual), Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, **North America** has the highest over qualified people, followed by **Europe**, **South America**, **Asia**, **Africa** and **Oceania**. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are **Europe**, **North America** and **Asia**
-
-```{r}
-dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
-        group_by(Continent, Occupations) %>% 
-        summarise(tot = (sum(number , na.rm = TRUE)))
-```
-
-```{r}
- dat4 <- pivot_wider(dat3, names_from = Continent, values_from = tot)
-```
-
-```{r occupa}
-table <- dat4 %>%
-  dplyr::select(-Unknown)  
-
-knitr::kable(
-table[1:10,], booktabs = TRUE,
-  caption = 'List of Occupations that people engage in after Migration') %>% 
-  kable_styling(bootstrap_options = c("striped", "hover") , latex_options = "scale_down")
-
-```
-
-In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
-
-
-\clearpage
-
-\section*{Gender Gap in Migration}
-
+\subsection*{Migration and Gender Gap}
 
 ```{r dataread , echo=FALSE, message=FALSE}
-
 file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
-
 ```
 
 Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
@@ -320,9 +198,9 @@ top_10 <- whomigrates %>%
          edu_lfs =as.factor(edu_lfs)
          ) %>% 
   group_by(country) %>% 
-  summarise(migrant_Count=
+  summarise(Migrant_Count=
               sum(number,na.rm=T)) %>%
-  arrange(desc(migrant_Count)) %>%
+  arrange(desc(Migrant_Count)) %>%
   head(10) 
   
   top_10 %>% 
@@ -401,7 +279,6 @@ In 2015-16, the most number of migrants fell in the age group 25-64, with female
 Amongst the age group 15-24, there is a relatively low gender difference in the migrant population compared to the other age groups and the trend is uniform in almost all the countries whereas amongst the migrants who are 65 years old and above, the number of females is higher than that of males in the USA, Japan , Italy, etc and Mexico being one of the top destinations for migration, saw an influx of an equal number of males and females aged over 65 in the year 2015-16. 
 
 
-
 ```{r agegap, warning=FALSE,echo = FALSE, message = FALSE, fig.cap="Gender difference in migrant population across age groups in countries " , fig.width=8}
 
 agegap <- whomigrates  %>% 
@@ -430,41 +307,23 @@ agegap <- whomigrates  %>%
 
 ```
 
+\subsection*{Unemployment and Education level}
 
 
-\section*{Limitations}
-
-The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
-
-\begin{enumerate}
-
-   \item Confidentiality and Reliability issues 
-
-Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
-
-   \item Unavailability of data
-
-Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
-
-  \item  Inconsistency of data
- 
- The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
- 
-\end{enumerate}
- 
- 
-\section*{Conclusion} 
 
 
-Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
 
-\begin{enumerate}
 
-\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
 
-\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
 
-\end{enumerate}
+
+
+
+
+
+
+
+
 
 \section* {The Education Level of Australian Residents}
 
@@ -694,7 +553,177 @@ Analysis:
   \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
 
 
-Limitation:
-   There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+```{r, echo=FALSE}
+dat <- read_csv("data/DIOC_2015_16_File_D_1.csv")
+```
+
+
+```{r}
+dat1 <- dat %>% 
+  mutate(Continent = case_when(
+     str_detect(regionb,"AFRI") ~ "Africa",
+     str_detect(regionb,"ASIA") ~ "Asia",
+     str_detect(regionb,"EURO") ~ "Europe",
+     str_detect(regionb,"NOAM") ~ "North America",
+     str_detect(regionb,"OCEA") ~ "Oceania",
+     str_detect(regionb,"SCAC") ~ "South America",
+     str_detect(regionb,"UNK") ~ "Unknown" 
+ )) %>%
+  mutate(Sex = case_when(
+   str_detect(sex,"1") ~ "Male",
+   str_detect(sex,"2")~ "Female"
+ )) %>%
+  mutate(Skill = case_when(
+    str_detect(skill_occ,"1") ~ "Skill Level 01",
+    str_detect(skill_occ,"2") ~ "Skill Level 02",
+    str_detect(skill_occ,"3") ~ "Skill Level 03",
+    str_detect(skill_occ,"99") ~ "Unknown"
+  )) %>%
+  mutate(Qualification = case_when(
+    str_detect(overqualified,"0") ~ "Not OverQualified",
+    str_detect(overqualified,"1") ~ "OverQualified",
+    str_detect(overqualified,"99") ~ "Unknown",
+  )) %>% 
+  mutate(Occupations = case_when(
+    str_detect(occ_1d,"0") ~ "Armed Forced Occupations",
+    str_detect(occ_1d,"1") ~ "Managerial Occupations",
+    str_detect(occ_1d,"2") ~ "Professional Occupations",
+    str_detect(occ_1d,"3") ~ "Technicians and Associate Professional Occupations",
+    str_detect(occ_1d,"4") ~ "Clerical Support Worker Occupations",
+    str_detect(occ_1d,"5") ~ "Service and Sales Worker Occupations",
+    str_detect(occ_1d,"6") ~ "Skilled Agricultural, Forestry and Fishery Occupations",
+    str_detect(occ_1d,"7") ~ "Craft and Related trade Occupations",
+    str_detect(occ_1d,"8") ~ "Plant and Machine Operators and Assembler Occupations",
+    str_detect(occ_1d,"9") ~ "Elementary Occupations",
+    str_detect(occ_1d,"99") ~ "Unknown"
+    )) %>% replace_with_na (replace =
+                    list(skill_occ = "Unknown",
+                         sex = "Unknown",
+                         regionb = "Unknown",
+                         overqualified = "Unknown",
+                         occ_1d = "Unknown"
+                        ))
+```
+
+
+```{r skill, fig.cap= "Types of Skill"}
+sum_dat1 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
+  dplyr::filter(Skill != "Unknown") %>% 
+  group_by(Continent, Skill) %>% 
+  summarise(tot = sum(number), na.rm = TRUE)
+
+ggplot(sum_dat1 , aes(x =  Continent , y = tot , fill = Skill) ) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  scale_fill_viridis_d() +
+  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle("Skill Level in different Continents across the Globe") + xlab("Continent") + ylab("Number of Migrants")
+```
+
+In figure \@ref(fig:skill) talks about the different **Skill Levels**. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that **Europe** have the highest number of migrants with all these skill levels. **North America** has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. **South America** have more people with skill level 02 followed by skill level 03 and skill level 01.  **Oceania** has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in **Asia** have skill level 02 and skill level 03. **Africa** has very migrants with all the skill levels.
+
+```{r qual, fig.cap= "Occupation Types"}
+sum_dat2 <- dat1 %>% dplyr::filter(Continent != "Unknown") %>% 
+  dplyr::filter(Qualification != "Unknown") %>% 
+  group_by(Continent, Qualification) %>% 
+  summarise(tot = sum(number), na.rm = TRUE)
+
+ggplot(sum_dat2 , aes(x =  Continent , y = tot , fill = Qualification) ) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  scale_fill_viridis_d() +
+  theme_bw() + scale_y_continuous(labels = comma) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle("Qualification Level in different Continents across the Globe") + xlab("Continent") + ylab("Number of Migrants")
+```
+
+In figure \@ref(fig:qual), Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, **North America** has the highest over qualified people, followed by **Europe**, **South America**, **Asia**, **Africa** and **Oceania**. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are **Europe**, **North America** and **Asia**
+
+```{r}
+dat3 <- dat1 %>% dplyr::filter(Occupations != "Unknown") %>% 
+        group_by(Continent, Occupations) %>% 
+        summarise(tot = (sum(number , na.rm = TRUE)))
+```
+
+```{r}
+ dat4 <- pivot_wider(dat3, names_from = Continent, values_from = tot)
+```
+
+```{r occupa}
+table <- dat4 %>%
+  dplyr::select(-Unknown)  
+
+knitr::kable(
+table[1:10,], booktabs = TRUE,
+  caption = 'List of Occupations that people engage in after Migration') %>% 
+  kable_styling(bootstrap_options = c("striped", "hover") , latex_options = "scale_down")
+
+```
+
+In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
+
+\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+ 
+ 
+\section*{Conclusion} 
+
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+ 
+ 
+\section*{Conclusion} 
+
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}
+
 
 \nocite{*}
