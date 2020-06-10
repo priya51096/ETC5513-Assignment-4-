@@ -252,7 +252,7 @@ agegap <- whomigrates  %>%
     scale_colour_brewer(palette = "Set1")+ 
     scale_y_continuous(labels = comma) +
    facet_wrap(~age_lfs,nrow = 3) + ylab("Number of Migrants") +
-   xlab("Country")
+   xlab("Country") 
 
 
 ```
@@ -267,7 +267,7 @@ The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information
 
    \item Confidentiality and Reliability issues 
 
-Due to confidentiality and reliability issues or imprecise information, the place of birth is sometimes recorded at the continental level such as Africa, Asia, Europe, etc. instead of the country level,therefore the analysis is focused on only the destination countries .Also, there is only limited details available on the important variables like educational qualification and skills. 
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
 
    \item Unavailability of data
 
@@ -280,7 +280,7 @@ Unavailability of data on variables like age, skills,occupation ,labour force st
  \end{enumerate}
  
  
-\section*{Conclusions} 
+\section*{Conclusion} 
 
 
 Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
