@@ -51,17 +51,24 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
-
 library(countrycode)
 library(tinytex)
-
 library(scales)
 library(naniar)
 library(bookdown)
 library(knitr)
 library(visdat)
-
 ```
+
+\section*{Acknowledgements}
+
+It gives, us immense pleasure and sincere gratitue to Dr Patricia Menéndez lectures and the tutorial sessions conducted by the tutors Stephanie Kobakian Mark Dulhunty, and Pablo Montero Manso. It only because of the culminative efforts that we am in the position to produce this report and display our knowledge over the github tools.
+
+\section*{Abstract}
+
+There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces. **Migration** is one important factor that enhances globalisation and helps in cultural, socio and economic changes in a large scale. This report will focus on the certain aspects of migration.
+
+\section*{Introduction}
 
 
 \section*{Research Questions}
