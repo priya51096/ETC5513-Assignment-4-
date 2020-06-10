@@ -32,6 +32,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -300,6 +309,89 @@
 \section*{Abstract}
 
 \section*{Methodology}
+
+\clearpage
+
+\section*{Gender Gap in Migration}
+
+Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
+
+The table \ref{tab:topdestinations} depicts the preferred destinations for migration in the year 2015/16. Historically, the USA have been the most popular destination for migration and has remained the same in the year 2015-16, with the most preferred destinations being the USA, Japan, and Mexico across all ages.
+
+\begin{table}
+
+\caption{\label{tab:topdestinations}Top 10 destinations}
+\centering
+\begin{tabular}[t]{lr}
+\toprule
+Country & migrant\_Count\\
+\midrule
+\rowcolor{gray!6}  United States of America & 323127504\\
+Japan & 127094759\\
+\rowcolor{gray!6}  Mexico & 119561904\\
+Germany & 82424843\\
+\rowcolor{gray!6}  Tunisia & 78741055\\
+\addlinespace
+France & 66190412\\
+\rowcolor{gray!6}  United Kingdom & 64381731\\
+Italy & 60383365\\
+\rowcolor{gray!6}  Korea & 48141031\\
+Spain & 45977782\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Among the international migrants, 50.94 \% are females and 49.06 \% are males. Figure \ref{fig:gendergap} shows the gender gap in each country's migrant population and it is observed that in 2015-16, women constituted more in the migrant population especially in the top preferred destinations like the USA, Japan, etc whereas the gap is relatively low in countries like Belgium, Finland, etc.
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/gendergap-1.pdf}
+\caption{\label{fig:gendergap}Gender difference in migrant population in countries}
+\end{figure}
+
+In 2015-16, the most number of migrants fell in the age group 25-64, with females being higher in number compared to males in countries like the USA, Mexico, Germany, etc. In countries like Japan, Korea and Spain it can be seen that there is no gender gap in the migrant population of age group 25-64 whereas in countries like Poland and Turkey the number of males is higher than females for the same age group.
+Amongst the age group 15-24, there is a relatively low gender difference in the migrant population compared to the other age groups and the trend is uniform in almost all the countries whereas amongst the migrants who are 65 years old and above, the number of females is higher than that of males in the USA, Japan , Italy, etc and Mexico being one of the top destinations for migration, saw an influx of an equal number of males and females aged over 65 in the year 2015-16.
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/agegap-1.pdf}
+\caption{\label{fig:agegap}Gender difference in migrant population across age groups in countries}
+\end{figure}
+
+\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+ \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+ \end{enumerate}
+
+\section*{Conclusion}
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+
+\end{enumerate}
+
+\nocite{*}
 
 \printbibliography
 
