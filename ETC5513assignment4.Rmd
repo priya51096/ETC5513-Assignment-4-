@@ -90,21 +90,33 @@ This report focuses on the migration dataset from the year 2015 to 2016. The OEC
 
 \section*{Motivation}
 
+Dilinie please add this(adding a little bit of data sources and a gist of all the reserach question in maybe 100-200 words.) 
+
 \section*{Data Source}
+
+(http://www.oecd.org/els/mig/dioc.htm)(link to the original dataset)
+Dilinie requesting you to the add the link to our where our dataset has been taken from. Also please add explanation of the data sources, also requestin you to explain the varibles before this.
+
+Also you can mention a few lines about the high importance of clean and understanable metadata
+
+Comprehensive metadata can also enable data sets designed for a single purpose to be reused for other purposes and over the longer term. Please also write the importance of metadata.
+
+\section*{Research Ethics}
+
+Dataset used in the report for analysis, has a lot of unknown values due to confidelity issues and the methods used to ensure reliability and protect confidentiality. Major principles of research ethics have been used in this report no labels or absurd statements have been made keeping in mind obtain informed consent from potential research participants, minimise the risk of harm to participants, protect their anonymity and confidentiality, avoid using deceptive practices and give participants the right to privacy.
 
 \section*{Methodology}
 
+Every migrant analyzes a few factors of the destination country before actually setttling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job oppurunities, what is the unemploymnet rate, what is the level of eductaion and their recoginition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on  four research questions, giving all of us a gist about the state of migration and migrants, across the world  
 
 \section*{Research Questions}
-  
-- Looking at the Skill level, Occupations across the globe
+
+There research question we have aimed to answer are as follows: 
+
+- The top destinations for migration, the gender difference in migration in total and across different age groups
+-Mine is to identify relationship between unemployment and education level, and the gender gap in unemployment
 
 
- \begin{enumerate}
-   \item Graph for Skill Level
-   \item Graph for Overqulaified 
-   \item Table for different Occupations
- \end{enumerate}
 
 \section*{Introduction}
    This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
@@ -434,11 +446,11 @@ Due to confidentiality issues, the place of birth is recorded at the continental
 
 Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
 
- \item  Inconsistency of data
+  \item  Inconsistency of data
  
  The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
  
- \end{enumerate}
+\end{enumerate}
  
  
 \section*{Conclusion} 
