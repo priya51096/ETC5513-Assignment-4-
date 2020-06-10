@@ -68,7 +68,6 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
 
 ```{r}
 C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
-C
 ```
 
 ```{r}
@@ -82,7 +81,6 @@ C2 <- C1 %>% mutate(employment = case_when(str_detect(labour_force_status
 , "3")~ "inactive",
                          str_detect(labour_force_status
 , "99")~ "unknown"))
-C2
 ```
 
 
@@ -97,7 +95,6 @@ GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.
 
 ```{r}
 GGM1 <- GGM %>% mutate(unemployrateM = (unemployed/(employed + inactive + unemployed)*100)) %>% select(country,unemployrateM)
-GGM1
 ```
 
 
@@ -107,7 +104,6 @@ GGF <- GG %>% group_by(country, employment) %>% summarise(countM = sum(female, n
 
 ```{r}
 GGF1 <- GGF %>% mutate(unemployrateF = (unemployed/(employed + inactive + unemployed))*100) %>% select(country,unemployrateF)
-GGF1
 ```
 
 ```{r unemployment_gendergap}
