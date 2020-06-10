@@ -167,7 +167,7 @@ aus_b1 %>%
          "Low level of education (%)" = l_prcnt,
          "Unknown level of education (%)" = u_prcnt) %>%
   kable(caption = "Percentages of Australian residents with different levels of education over each category of duration of stay") %>%
-  kable_styling(latex_options = c("HOLD_position"))
+  kable_styling(latex_options = c("HOLD_position", "scale_down"))
 ```
 
 A breakdown of Australian residents with different durations of stay, into their level of education is represented in table \@ref(tab:table-percent-levels-of-education). It can be seen that the majority of individuals who have obtained residency in Australia recently have a high level of education while only a few of them have a low level of education. A significant increase in percentages of individuals with higher levels of education obtaining residency in Australia can also be seen from table \@ref(tab:table-percent-levels-of-education). Most native-Australians (41%) have a medium level of education, while others with shorter durations of stay in Australia have much higher levels of education.
