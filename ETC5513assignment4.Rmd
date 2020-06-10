@@ -259,5 +259,22 @@ agegap <- whomigrates  %>%
 
 
 
+\section*{Limitations}
 
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
 
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality and reliability issues or imprecise information, the place of birth is sometimes recorded at the continental level such as Africa, Asia, Europe, etc. instead of the country level,therefore the analysis is focused on only the destination countries .Also, there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+ \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+ \end{enumerate}
