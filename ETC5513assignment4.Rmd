@@ -50,12 +50,13 @@ library(readr)
 library(kableExtra)
 library(bookdown)
 library(countrycode)
+library(tinytex)
 ```
 
 
 
 \section*{Introduction}
-   This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants.
+   This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
 
 \section*{Abstract}
 
@@ -81,7 +82,7 @@ C2
 ```
 ```{r}
 GG <- C2 %>% select(!sex) %>% pivot_wider(names_from = gender, values_from = number) %>% select(country, male, female, employment)
-GG
+```
 ```
 ```{r}
 GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
