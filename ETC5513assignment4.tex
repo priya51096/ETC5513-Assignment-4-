@@ -284,7 +284,14 @@
 \usepackage{setspace}
 \setstretch{1.5}
 
-%% Any special functions or other packages can be loaded here.
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}%% Any special functions or other packages can be loaded here.
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -304,81 +311,76 @@
 \begin{document}
 \titlepage
 
+\section*{Acknowledgements}
+
+It gives, us immense pleasure and sincere gratitue to Dr Patricia Menéndez lectures and the tutorial sessions conducted by the tutors Stephanie Kobakian Mark Dulhunty, and Pablo Montero Manso. It only because of the culminative efforts that we am in the position to produce this report and display our knowledge over the github tools.
+
+\section*{Abstract}
+
+There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces. \textbf{Migration} is one important factor that enhances globalisation and helps in cultural, socio and economic changes in a large scale. This report will focus on the certain aspects of migration.
+
+\section*{Introduction}
+
+Migration is the movement of people from one place to another with the intentions of settling, permanently or temporarily, at a new location. We are looking at a dataset from the database of OCED. In order to understand further analysis let us look at some of the important defination required to understand this report.
+
+What is OECD ?
+
+The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
+
+What is ISCED ?
+
+The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
+
+What is ISCO ?
+
+The International Standard Classification of Occupations is an International Labour Organization classification structure for organizing information on labour and jobs.
+
+This report focuses on the migration dataset from the year 2015 to 2016. The OECD makes data available for use and consultation by the public under the license \textbf{CC BY-NC-SA 3.0 IGO}. This license allows us to share and modify data apart from commerical uses and has strict restrictions of attribution.
+
+\begin{figure}
+\centering
+\includegraphics{data/image.png}
+\caption{Migration Facts and Figures}
+\end{figure}
+
+\section*{Motivation}
+
+Dilinie please add this(adding a little bit of data sources and a gist of all the reserach question in maybe 100-200 words.)
+
+\section*{Data Source}
+
+(\url{http://www.oecd.org/els/mig/dioc.htm})(link to the original dataset)
+Dilinie requesting you to the add the link to our where our dataset has been taken from. Also please add explanation of the data sources, also requestin you to explain the varibles before this.
+
+Also you can mention a few lines about the high importance of clean and understanable metadata
+
+Comprehensive metadata can also enable data sets designed for a single purpose to be reused for other purposes and over the longer term. Please also write the importance of metadata.
+
+\section*{Research Ethics}
+
+Dataset used in the report for analysis, has a lot of unknown values due to confidelity issues and the methods used to ensure reliability and protect confidentiality. Major principles of research ethics have been used in this report no labels or absurd statements have been made keeping in mind obtain informed consent from potential research participants, minimise the risk of harm to participants, protect their anonymity and confidentiality, avoid using deceptive practices and give participants the right to privacy.
+
+\section*{Methodology}
+
+Every migrant analyzes a few factors of the destination country before actually setttling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job oppurunities, what is the unemploymnet rate, what is the level of eductaion and their recoginition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on four research questions, giving all of us a gist about the state of migration and migrants, across the world.
+
 \section*{Research Questions}
+
+There research question we have aimed to answer are as follows:
 
 \begin{itemize}
 \tightlist
 \item
-  Looking at the Skill level, Occupations across the globe
+  The top destinations for migration, the gender difference in migration in total and across different age groups
+\item
+  Identifying the relationship between unemployment and education level as well as the gender gap in unemployment
+\item
+  Analysing the level of education of residents of Australia versus the duration they have been in Australia.
+\item
+  Distribution of various skill levels, types of occupation and overqualified population across the globe in different continents
 \end{itemize}
 
-\begin{enumerate}
-   \item Graph for Skill Level
-   \item Graph for Overqulaified 
-   \item Table for different Occupations
- \end{enumerate}
-
-\section*{Introduction}
-
-This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
-
-What is OECD ?
-
-\begin{quote}
-The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
-\end{quote}
-
-What is ISCED ?
-
-\begin{quote}
-The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
-\end{quote}
-
-\begin{figure}
-\centering
-\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
-\caption{\label{fig:skill}Types of Skill}
-\end{figure}
-
-In figure \ref{fig:skill} talks about the different \textbf{Skill Levels}. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that \textbf{Europe} have the highest number of migrants with all these skill levels. \textbf{North America} has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. \textbf{South America} have more people with skill level 02 followed by skill level 03 and skill level 01. \textbf{Oceania} has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in \textbf{Asia} have skill level 02 and skill level 03. \textbf{Africa} has very migrants with all the skill levels.
-
-\begin{figure}
-\centering
-\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
-\caption{\label{fig:qual}Occupation Types}
-\end{figure}
-
-In figure \ref{fig:qual}, Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, \textbf{North America} has the highest over qualified people, followed by \textbf{Europe}, \textbf{South America}, \textbf{Asia}, \textbf{Africa} and \textbf{Oceania}. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are \textbf{Europe}, \textbf{North America} and \textbf{Asia}
-
-\begin{table}
-
-\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
-\centering
-\resizebox{\linewidth}{!}{
-\begin{tabular}[t]{lrrrrrr}
-\toprule
-Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
-\midrule
-Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
-Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
-Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
-Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
-Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
-\addlinespace
-Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
-Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
-Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
-Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
-Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-In table \ref{tab:occupa} we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
-
-\clearpage
-
-\section*{Gender Gap in Migration}
+\subsection*{Migration and Gender Gap}
 
 Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
 
@@ -390,7 +392,7 @@ The table \ref{tab:topdestinations} depicts the preferred destinations for migra
 \centering
 \begin{tabular}[t]{lr}
 \toprule
-Country & migrant\_Count\\
+Country & Migrant\_Count\\
 \midrule
 \rowcolor{gray!6}  United States of America & 323127504\\
 Japan & 127094759\\
@@ -424,37 +426,7 @@ Amongst the age group 15-24, there is a relatively low gender difference in the 
 \caption{\label{fig:agegap}Gender difference in migrant population across age groups in countries}
 \end{figure}
 
-\section*{Limitations}
-
-The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
-
-\begin{enumerate}
-
-   \item Confidentiality and Reliability issues 
-
-Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
-
-   \item Unavailability of data
-
-Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
-
- \item  Inconsistency of data
- 
- The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
- 
- \end{enumerate}
-
-\section*{Conclusion}
-
-Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
-
-\begin{enumerate}
-
-\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
-
-\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
-
-\end{enumerate}
+\subsection*{Unemployment and Education level}
 
 \section* {The Education Level of Australian Residents}
 
@@ -512,7 +484,7 @@ A breakdown of Australian residents with different durations of stay, into their
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-13}unemployment gendergap}
+\caption{\label{tab:unnamed-chunk-9}unemployment gendergap}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -605,7 +577,7 @@ We can draw conlusion from \ref{fig:GAP} thatGenerally speaking, gender gap in u
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-15}unemployrate on different level of education}
+\caption{\label{tab:unnamed-chunk-11}unemployrate on different level of education}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -706,8 +678,109 @@ Analysis:
 
 \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
 
-Limitation:
-There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
+\caption{\label{fig:skill}Types of Skill}
+\end{figure}
+
+In figure \ref{fig:skill} talks about the different \textbf{Skill Levels}. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that \textbf{Europe} have the highest number of migrants with all these skill levels. \textbf{North America} has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. \textbf{South America} have more people with skill level 02 followed by skill level 03 and skill level 01. \textbf{Oceania} has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in \textbf{Asia} have skill level 02 and skill level 03. \textbf{Africa} has very migrants with all the skill levels.
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
+\caption{\label{fig:qual}Occupation Types}
+\end{figure}
+
+In figure \ref{fig:qual}, Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, \textbf{North America} has the highest over qualified people, followed by \textbf{Europe}, \textbf{South America}, \textbf{Asia}, \textbf{Africa} and \textbf{Oceania}. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are \textbf{Europe}, \textbf{North America} and \textbf{Asia}
+
+\begin{table}
+
+\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
+\midrule
+Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
+Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
+Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
+Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
+Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
+\addlinespace
+Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
+Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
+Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
+Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
+Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+In table \ref{tab:occupa} we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
+
+\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+
+\section*{Conclusion}
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+
+\section*{Conclusion}
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}
 
 \nocite{*}
 
