@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 09:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1701,12 +1701,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 789.
  ) 
 Here is how much of TeX's memory you used:
  26414 strings out of 482913
- 438358 string characters out of 5957764
- 1098939 words of memory out of 5000000
+ 438366 string characters out of 5957764
+ 1098944 words of memory out of 5000000
  40936 multiletter control sequences out of 15000+600000
  636779 words of font info for 295 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 45i,14n,91p,1532b,1430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,14n,91p,1530b,1430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc
 }{c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi
 .enc}{c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawes
@@ -1721,7 +1721,7 @@ b8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/be
 ra/fvsr8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
 lic/mathdesign/mdbch/md-chr8t.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/mathdesign/mdbch/md-chri8t.pfb>
-Output written on ETC5513assignment4.pdf (19 pages, 274726 bytes).
+Output written on ETC5513assignment4.pdf (19 pages, 274704 bytes).
 PDF statistics:
  259 PDF objects out of 1000 (max. 8388607)
  208 compressed objects within 3 object streams
