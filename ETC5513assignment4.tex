@@ -214,9 +214,9 @@
 \def\telephone#1{\gdef\@telephone{#1}}
 \def\email#1{\gdef\@email{#1}}
 \makeatother
-  \organization{Australian Government COVID19}
+  \organization{ETC5513 - Collaborative and Reproducible Practices}
 
-  \def\name{ETC5513, Group 11\newline Junhao \&\newline Aarathy \&\newline Dilinie \&\newline Priya}
+  \def\name{Department of\newline Econometrics \&\newline Business Statistics}
 
   \telephone{(03) 9905 2478}
 
@@ -284,7 +284,14 @@
 \usepackage{setspace}
 \setstretch{1.5}
 
-%% Any special functions or other packages can be loaded here.
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}%% Any special functions or other packages can be loaded here.
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -304,81 +311,101 @@
 \begin{document}
 \titlepage
 
+\section*{Acknowledgement}
+
+Our sincere gratitude goes out to Dr.Patricia Menéndez and the tutors; Stephanie Kobakian, Mark Dulhunty and Pablo Montero Manso for their guidance and support during the semester. Their culminative efforts have put us in a position where we are able to collaboratively produce this report while demonstrating our ability to use git tools.
+
+\pagebreak
+
+\section*{Abstract}
+
+There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces. \textbf{Migration} is one important factor that enhances globalization and helps in cultural and socio-economic changes in a large scale. This report will focus on a few aspects of migration.
+
+\section*{Introduction}
+
+Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily at a new location. With increased globalization, easy acess to opportunities across the world and increased educational and skill levels of individuals, migration has become a common occurence across the world.
+
+The impact of migration is an important factor affecting both the home country and the destination country of the migrant. The impact however varies by the reason of migration. Labor migration, skill based migration, migration for education, marriage migration and migration of refugees are a few categories of migration based on the reason for migration.
+
+Within the context of this report, the migration statistics in the years 2015 and 2016 will be analysed based on demographic factors of the migrants, their education and skill levels, preference of countries to migrate to and the type of occupations they are most likely to migrate for. The analysis will compare countries, continents and population within countries in deriving conclusions.
+
+\begin{figure}
+\centering
+\includegraphics{data/image.png}
+\caption{Migration Facts and Figures}
+\end{figure}
+
+\section*{Data Sources}
+
+The Organisation for Economic Co-operation and Development(OECD) provides a dataset based on the population censuses of OECD countries around the world. The OECD and the World Bank also collaborate in providing an \href{http://www.oecd.org/els/mig/dioc.htm}{extensive dataset on the immigrants from OECD countries to non-OECD countries}.
+
+The dataset from the database of Immigrants in OECD and non-OECD countries from the year 2015-2016 will be used in the analysis within the report. The dataset includes information such as demographic characteristics of the immigrants, their duration stay, labor market outcomes, fields of study, educational attainment and their place of birth.
+
+Along with the dataset, the OECD provides documentation on the methodology used in obtaining the data and a description of limiations in the methodology. The metadata also contains a detailed explanation of the spread of data over several files, the encoded variables, the domain of each variable and reasons for missing values in specific variables
+
+The OECD makes data available for use and consultation by the public under the license \textbf{CC BY-NC-SA 3.0 IGO}. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
+
+A few important definitions required to understand this report are mentioned below.
+
+What is OECD ?
+
+The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
+
+What is ISCED ?
+
+The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
+
+What is ISCO ?
+
+The International Standard Classification of Occupations is an International Labor Organization classification structure for organizing information on labor and jobs.
+
+\subsection*{Limitations of the dataset}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+
+\section*{Research Ethics}
+
+Dataset used in the report for analysis, has a lot of unknown values due to confidentiality issues and the methods used to ensure reliability and protect confidentiality. Major principles of research ethics have been used in this report no labels or absurd statements have been made keeping in mind obtain informed consent from potential research participants, minimize the risk of harm to participants, protect their anonymity and confidentiality, avoid using deceptive practices and give participants the right to privacy.
+
+\section*{Methodology}
+
+Every migrant analyzes a few factors of the destination country before actually settling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job opportunities, what is the unemployment rate, what is the level of education and their recognition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on four research questions, giving all of us a gist about the state of migration and migrants, across the world.
+
 \section*{Research Questions}
+
+There research question we have aimed to answer are as follows:
 
 \begin{itemize}
 \tightlist
 \item
-  Looking at the Skill level, Occupations across the globe
+  The top destinations for migration, the gender difference in migration in total and across different age groups
+\item
+  Identifying the relationship between unemployment and education level as well as the gender gap in unemployment
+\item
+  Analyzing the level of education of residents of Australia versus the duration they have been in Australia.
+\item
+  Distribution of various skill levels, types of occupation and overqualified population across the globe in different continents
 \end{itemize}
 
-\begin{enumerate}
-   \item Graph for Skill Level
-   \item Graph for Overqulaified 
-   \item Table for different Occupations
- \end{enumerate}
+\pagebreak
 
-\section*{Introduction}
-
-This dataset provides information about OECD coutries. each file includes a number of core variables (detailed country of birth, education and sex). So our goals is to study immigrant in OECD countries and use these core variables to analyse the situation of immigrants. In this category: Priya ; Aarathy; Junhao look into the gender gap of unemployment rate, and study the relationsip between education level unemployment; Dilinie study the level of education of residents of Australia vs the duration theyve been in in Australia.
-
-What is OECD ?
-
-\begin{quote}
-The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
-\end{quote}
-
-What is ISCED ?
-
-\begin{quote}
-The International Standard Classification of Education is a statistical framework for organizing information on education maintained by the United Nations Educational, Scientific and Cultural Organization. It is a member of the international family of economic and social classifications of the United Nations.
-\end{quote}
-
-\begin{figure}
-\centering
-\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
-\caption{\label{fig:skill}Types of Skill}
-\end{figure}
-
-In figure \ref{fig:skill} talks about the different \textbf{Skill Levels}. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipments, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized feild, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that \textbf{Europe} have the highest number of migrants with all these skill levels. \textbf{North America} has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. \textbf{South America} have more people with skill level 02 followed by skill level 03 and skill level 01. \textbf{Oceania} has verey few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in \textbf{Asia} have skill level 02 and skill level 03. \textbf{Africa} has very migrants with all the skill levels.
-
-\begin{figure}
-\centering
-\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
-\caption{\label{fig:qual}Occupation Types}
-\end{figure}
-
-In figure \ref{fig:qual}, Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has recieved. Looking at the figure closely, we have seen that, \textbf{North America} has the highest over qualified people, followed by \textbf{Europe}, \textbf{South America}, \textbf{Asia}, \textbf{Africa} and \textbf{Oceania}. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are \textbf{Europe}, \textbf{North America} and \textbf{Asia}
-
-\begin{table}
-
-\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
-\centering
-\resizebox{\linewidth}{!}{
-\begin{tabular}[t]{lrrrrrr}
-\toprule
-Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
-\midrule
-Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
-Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
-Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
-Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
-Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
-\addlinespace
-Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
-Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
-Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
-Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
-Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-In table \ref{tab:occupa} we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
-
-\clearpage
-
-\section*{Gender Gap in Migration}
+\section*{Migration and Gender Gap}
 
 Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
 
@@ -390,7 +417,7 @@ The table \ref{tab:topdestinations} depicts the preferred destinations for migra
 \centering
 \begin{tabular}[t]{lr}
 \toprule
-Country & migrant\_Count\\
+Country & Migrant\_Count\\
 \midrule
 \rowcolor{gray!6}  United States of America & 323127504\\
 Japan & 127094759\\
@@ -425,44 +452,42 @@ Amongst the age group 15-24, there is a relatively low gender difference in the 
 \caption{\label{fig:agegap}Gender difference in migrant population across age groups in countries}
 \end{figure}
 
-\section*{Limitations}
-
-The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
-
-\begin{enumerate}
-
-   \item Confidentiality and Reliability issues 
-
-Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
-
-   \item Unavailability of data
-
-Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
-
- \item  Inconsistency of data
- 
- The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
- 
- \end{enumerate}
-
-\section*{Conclusion}
-
-Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
-
-\begin{enumerate}
-
-\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
-
-\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
-
-\end{enumerate}
+\pagebreak
 
 \section* {The Education Level of Australian Residents}
 
-In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. \textcite{hawthorne2010valuable} states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the ``two-step-migration'' by \textcite{hawthorne2010valuable}.
+In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. \textcite{hawthorne2010valuable} states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the \emph{``two-step-migration''} by \textcite{hawthorne2010valuable}.
 
 This section will analyse the education levels of current residents of Australia categorized by their duration of stay in the country.
 
+The dataset provides information on the education levels of Australian residents and their duration of stay within the country.\\
+The residents of Australia have been categorized based on their duration of stay within the country as
+
+\begin{itemize}
+\tightlist
+\item
+  native born
+\item
+  less than 5 years
+\item
+  between 5 - 10 years
+\item
+  more than 10 years
+\end{itemize}
+
+The level of education has been categorized using a broad three-category classification as
+
+\begin{itemize}
+\tightlist
+\item
+  low
+\item
+  medium
+\item
+  high
+\end{itemize}
+
+<<<<<<< HEAD
 The dataset provides information on the education levels of Australian residents and their duration of stay within the country.\\
 The residents of Australia have been categorized based on their duration of stay within the country as\\
 - native born\\
@@ -479,6 +504,9 @@ However the duration of stay of 26\% of Australian residents is unknown, while t
 =======
 However the duration of stay of 25.9\% of Australian residents is unknown, while the education level of 24.6\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
 >>>>>>> def8da9e9026f20a34ca801f7a151c5c063a32f3
+=======
+However the duration of stay of 25.9\% of Australian residents is unknown, while the education level of 24.6\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
+>>>>>>> eabbcbc381efdd1c5d8286487480e124b760588a
 
 \begin{figure}
 \centering
@@ -486,10 +514,10 @@ However the duration of stay of 25.9\% of Australian residents is unknown, while
 \caption{\label{fig:tile-plot-edu-vs-duration}Breakdown of Australian residents based on their level of Education and duration of stay in Australia}
 \end{figure}
 
-Figure \ref{fig:tile-plot-edu-vs-duration} shows the breakdown of Australian residents based on their duration of stay in Australia and their level of education; the higher counts of residents are represented by light blue and the lower number of residents are represented by dark blue. The dataset contains a few unknowns about the Australian resident, some on the level of education and some on the duration of stay, which is also represented in figure \ref{fig:tile-plot-edu-vs-duration}.
+Figure \ref{fig:tile-plot-edu-vs-duration} shows the breakdown of Australian residents based on their duration of stay in Australia and their level of education; the higher counts of residents are represented by light blue and the lower number of residents are represented by dark blue. The dataset contains a few unknowns about the residents, some on the level of education and some on the duration of stay, which is also represented in figure \ref{fig:tile-plot-edu-vs-duration}.
 
 It's obvious that the highest counts of Australian residents are natives, and is interesting that a majority of them have a medium level of education, followed by natives having a higher level of education and only a few of them having a low level of education.
-It's also interesting how the numbers of Ausralian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
+It's also interesting how the numbers of Australian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
 
 \begin{table}[H]
 
@@ -500,11 +528,11 @@ It's also interesting how the numbers of Ausralian residents who have been in th
 \hline
 Duration of stay & High level of education (\%) & Medium level of education (\%) & Low level of education (\%) & Unknown level of education (\%)\\
 \hline
-five-to-ten-years & 54\% & 31\% & 9\% & 5\%\\
+\rowcolor{gray!6}  five-to-ten-years & 54\% & 31\% & 9\% & 5\%\\
 \hline
 five-years-or-less & 50\% & 34\% & 10\% & 6\%\\
 \hline
-more-than-ten-years & 37\% & 34\% & 21\% & 8\%\\
+\rowcolor{gray!6}  more-than-ten-years & 37\% & 34\% & 21\% & 8\%\\
 \hline
 native-born & 29\% & 41\% & 22\% & 8\%\\
 \hline
@@ -513,85 +541,87 @@ native-born & 29\% & 41\% & 22\% & 8\%\\
 
 A breakdown of Australian residents with different durations of stay, into their level of education is represented in table \ref{tab:table-percent-levels-of-education}. It can be seen that the majority of individuals who have obtained residency in Australia recently have a high level of education while only a few of them have a low level of education. A significant increase in percentages of individuals with higher levels of education obtaining residency in Australia can also be seen from table \ref{tab:table-percent-levels-of-education}. Most native-Australians (41\%) have a medium level of education, while others with shorter durations of stay in Australia have much higher levels of education.
 
-\textcite{green2007immigrant} states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in overeducation of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \ref{fig:tile-plot-edu-vs-duration} and table \ref{tab:table-percent-levels-of-education}.
+\textcite{green2007immigrant} states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in over-education of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \ref{fig:tile-plot-edu-vs-duration} and table \ref{tab:table-percent-levels-of-education}.
 
-\begin{table}
+\section* {Ed add section title please}
 
-\caption{\label{tab:unnamed-chunk-13}unemployment gendergap}
+\begin{table}[H]
+
+\caption{\label{tab:unnamed-chunk-9}unemployment gendergap}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
 country & unemployrateM & unemployrateF & unemployrateGAP\\
 \hline
-AUS & 4.862303 & 4.0115099 & -0.8507930\\
+\rowcolor{gray!6}  AUS & 4.862303 & 4.0115099 & -0.8507930\\
 \hline
 AUT & 5.336735 & 3.9353913 & -1.4013437\\
 \hline
-BEL & 4.347939 & 3.2985616 & -1.0493775\\
+\rowcolor{gray!6}  BEL & 4.347939 & 3.2985616 & -1.0493775\\
 \hline
 CAN & 5.778106 & 4.3270743 & -1.4510321\\
 \hline
-CHE & 3.865908 & 3.2144728 & -0.6514349\\
+\rowcolor{gray!6}  CHE & 3.865908 & 3.2144728 & -0.6514349\\
 \hline
 CHL & 4.809590 & 3.9577202 & -0.8518701\\
 \hline
-CZE & 2.396411 & 2.4515907 & 0.0551801\\
+\rowcolor{gray!6}  CZE & 2.396411 & 2.4515907 & 0.0551801\\
 \hline
 DEU & 2.936210 & 2.0469143 & -0.8892954\\
 \hline
-DNK & 2.148729 & 2.1059917 & -0.0427379\\
+\rowcolor{gray!6}  DNK & 2.148729 & 2.1059917 & -0.0427379\\
 \hline
 ESP & 10.985712 & 10.8943528 & -0.0913595\\
 \hline
-EST & 5.300859 & 3.4574224 & -1.8434366\\
+\rowcolor{gray!6}  EST & 5.300859 & 3.4574224 & -1.8434366\\
 \hline
 FIN & 9.559730 & 6.8315897 & -2.7281404\\
 \hline
-FRA & 8.392850 & 7.8781252 & -0.5147248\\
+\rowcolor{gray!6}  FRA & 8.392850 & 7.8781252 & -0.5147248\\
 \hline
 GBR & 3.663103 & 2.8918511 & -0.7712517\\
 \hline
-GRC & 10.585938 & 7.4697667 & -3.1161718\\
+\rowcolor{gray!6}  GRC & 10.585938 & 7.4697667 & -3.1161718\\
 \hline
 HUN & 7.512527 & 5.7554851 & -1.7570423\\
 \hline
-IRL & 9.371130 & 6.6267541 & -2.7443755\\
+\rowcolor{gray!6}  IRL & 9.371130 & 6.6267541 & -2.7443755\\
 \hline
 ISL & 3.634079 & 3.1891160 & -0.4449626\\
 \hline
-ISR & 3.226836 & 2.9344538 & -0.2923819\\
+\rowcolor{gray!6}  ISR & 3.226836 & 2.9344538 & -0.2923819\\
 \hline
 ITA & 6.557226 & 5.1080372 & -1.4491892\\
 \hline
-JPN & 3.452669 & 1.6996869 & -1.7529817\\
+\rowcolor{gray!6}  JPN & 3.452669 & 1.6996869 & -1.7529817\\
 \hline
 KOR & NA & NA & NA\\
 \hline
-LUX & 46.543493 & 35.7410219 & -10.8024711\\
+\rowcolor{gray!6}  LUX & 46.543493 & 35.7410219 & -10.8024711\\
 \hline
 LVA & 7.869852 & 5.4260483 & -2.4438039\\
 \hline
-MEX & 3.497137 & 0.9523001 & -2.5448371\\
+\rowcolor{gray!6}  MEX & 3.497137 & 0.9523001 & -2.5448371\\
 \hline
 NLD & 3.881309 & 3.8180653 & -0.0632437\\
 \hline
-NOR & 2.147195 & 1.4721626 & -0.6750323\\
+\rowcolor{gray!6}  NOR & 2.147195 & 1.4721626 & -0.6750323\\
 \hline
 NZL & 3.579875 & 3.6812728 & 0.1013976\\
 \hline
-POL & 7.015866 & 5.7597853 & -1.2560810\\
+\rowcolor{gray!6}  POL & 7.015866 & 5.7597853 & -1.2560810\\
 \hline
 PRT & 7.032256 & 5.9746734 & -1.0575825\\
 \hline
-SVK & 11.368361 & 8.7232843 & -2.6450766\\
+\rowcolor{gray!6}  SVK & 11.368361 & 8.7232843 & -2.6450766\\
 \hline
 SVN & 4.902322 & 4.6408436 & -0.2614786\\
 \hline
-SWE & 3.838277 & 3.0794607 & -0.7588166\\
+\rowcolor{gray!6}  SWE & 3.838277 & 3.0794607 & -0.7588166\\
 \hline
 TUR & 7.266447 & 4.5316713 & -2.7347755\\
 \hline
-USA & 3.955071 & 3.2786733 & -0.6763982\\
+\rowcolor{gray!6}  USA & 3.955071 & 3.2786733 & -0.6763982\\
 \hline
 \end{tabular}
 \end{table}
@@ -606,93 +636,93 @@ USA & 3.955071 & 3.2786733 & -0.6763982\\
 
 Analysis:
 
-We can draw conlusion from \ref{fig:GAP} thatGenerally speaking, gender gap in unemployment rate does exist, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male.
+We can draw conclusion from \ref{fig:GAP} that Generally speaking, gender gap in unemployment rate does exist, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male.
 
-\begin{table}
+\begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-15}unemployrate on different level of education}
+\caption{\label{tab:unnamed-chunk-11}unemployment rate on different level of education}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
 country & educationlevel & unemployRATE\\
 \hline
-AUS & high & 0.0354576\\
+\rowcolor{gray!6}  AUS & high & 0.0354576\\
 \hline
 AUS & low & 0.0443595\\
 \hline
-AUS & medium & 0.0532527\\
+\rowcolor{gray!6}  AUS & medium & 0.0532527\\
 \hline
 AUS & unknown & 0.0358913\\
 \hline
-AUT & high & 0.0311428\\
+\rowcolor{gray!6}  AUT & high & 0.0311428\\
 \hline
 AUT & low & 0.0701552\\
 \hline
-AUT & medium & 0.0457923\\
+\rowcolor{gray!6}  AUT & medium & 0.0457923\\
 \hline
 AUT & unknown & NaN\\
 \hline
-BEL & high & 0.0298011\\
+\rowcolor{gray!6}  BEL & high & 0.0298011\\
 \hline
 BEL & low & 0.0431251\\
 \hline
-BEL & medium & 0.0461857\\
+\rowcolor{gray!6}  BEL & medium & 0.0461857\\
 \hline
 BEL & unknown & 0.0122354\\
 \hline
-CAN & high & 0.0452058\\
+\rowcolor{gray!6}  CAN & high & 0.0452058\\
 \hline
 CAN & low & 0.0517304\\
 \hline
-CAN & medium & 0.0601727\\
+\rowcolor{gray!6}  CAN & medium & 0.0601727\\
 \hline
 CHE & high & 0.0328462\\
 \hline
-CHE & low & 0.0416613\\
+\rowcolor{gray!6}  CHE & low & 0.0416613\\
 \hline
 CHE & medium & 0.0336930\\
 \hline
-CHL & high & 0.0179900\\
+\rowcolor{gray!6}  CHL & high & 0.0179900\\
 \hline
 CHL & low & 0.0427796\\
 \hline
-CHL & medium & 0.0498058\\
+\rowcolor{gray!6}  CHL & medium & 0.0498058\\
 \hline
 CHL & unknown & 0.0527589\\
 \hline
-CZE & high & 0.0167868\\
+\rowcolor{gray!6}  CZE & high & 0.0167868\\
 \hline
 CZE & low & 0.0409399\\
 \hline
-CZE & medium & 0.0226775\\
+\rowcolor{gray!6}  CZE & medium & 0.0226775\\
 \hline
 CZE & unknown & 0.0487416\\
 \hline
-DEU & high & 0.0160581\\
+\rowcolor{gray!6}  DEU & high & 0.0160581\\
 \hline
 DEU & low & 0.0374303\\
 \hline
-DEU & medium & 0.0236941\\
+\rowcolor{gray!6}  DEU & medium & 0.0236941\\
 \hline
 DEU & unknown & 0.0093930\\
 \hline
-DNK & high & 0.0231097\\
+\rowcolor{gray!6}  DNK & high & 0.0231097\\
 \hline
 DNK & low & 0.0177326\\
 \hline
-DNK & medium & 0.0225601\\
+\rowcolor{gray!6}  DNK & medium & 0.0225601\\
 \hline
 DNK & unknown & 0.0210787\\
 \hline
-ESP & high & 0.0880976\\
+\rowcolor{gray!6}  ESP & high & 0.0880976\\
 \hline
 ESP & low & 0.1186934\\
 \hline
-ESP & medium & 0.1216533\\
+\rowcolor{gray!6}  ESP & medium & 0.1216533\\
 \hline
 ESP & unknown & 0.0000000\\
 \hline
-EST & high & 0.0286894\\
+\rowcolor{gray!6}  EST & high & 0.0286894\\
 \hline
 EST & low & 0.0441750\\
 =======
@@ -884,8 +914,93 @@ Analysis:
 Situation in different countries varies. most countries have the unemployment rate under 10\%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
 >>>>>>> Junhao
 
-Limitation:
-There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+\pagebreak
+
+\section* {Skills, Occupation and Qualification across the Globe}
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/skill-1.pdf}
+\caption{\label{fig:skill}Types of Skill}
+\end{figure}
+
+In figure \ref{fig:skill} talks about the different \textbf{Skill Levels}. It is defined as a function of the complexity and range of tasks and duties to be performed in an occupation into groups that people have across the globe in. Let us understand the different skills. Skill Level 01 typically involve the performance of simple and routine physical or manual task, these task require physical strength and/or endurance. Skill Level 02 typically involve the performance of tasks such as operating machinery and electronic equipment, they should also have the ability to read and write to a certain extend. Skill Level 03 involves the performance of complex technical and practical tasks that require an extensive body of factual, technical and procedural knowledge in a specialized field, requires high level literacy and numeracy and well developed interpersonal communication skills. The graph here shows that \textbf{Europe} have the highest number of migrants with all these skill levels. \textbf{North America} has very less migrants involved in skill level 01 and most migrants have skill level 02 and level 03. \textbf{South America} have more people with skill level 02 followed by skill level 03 and skill level 01. \textbf{Oceania} has very few migrants with skill level 01 and people with skill level 02 and skill level 03. Most of the migrants in \textbf{Asia} have skill level 02 and skill level 03. \textbf{Africa} has very migrants with all the skill levels.
+
+\begin{figure}
+\centering
+\includegraphics{ETC5513assignment4_files/figure-latex/qual-1.pdf}
+\caption{\label{fig:qual}Occupation Types}
+\end{figure}
+
+In figure \ref{fig:qual}, Overqualified indicates whether a worker is highly educated for the job that he is doing in a particular continent with respect to their education attainment he has received. Looking at the figure closely, we have seen that, \textbf{North America} has the highest over qualified people, followed by \textbf{Europe}, \textbf{South America}, \textbf{Asia}, \textbf{Africa} and \textbf{Oceania}. Not overqualified here refers to that, most migrants have just the right level of education attainment. We see that the top three continents with the right qualification amongst the migrants are \textbf{Europe}, \textbf{North America} and \textbf{Asia}
+
+\begin{table}[H]
+
+\caption{\label{tab:occupa}List of Occupations that people engage in after Migration}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+Occupations & Africa & Asia & Europe & North America & Oceania & South America\\
+\midrule
+\rowcolor{gray!6}  Armed Forced Occupations & 16578 & 134184 & 1161864 & 57483 & 78087 & 123354\\
+Clerical Support Worker Occupations & 346142 & 3335802 & 20918780 & 807736 & 854191 & 3722436\\
+\rowcolor{gray!6}  Craft and Related trade Occupations & 507452 & 3238802 & 23205091 & 1746178 & 511284 & 8491454\\
+Elementary Occupations & 1039390 & 4126580 & 19477937 & 490819 & 63336 & 10020788\\
+\rowcolor{gray!6}  Managerial Occupations & 295844 & 1351722 & 12933257 & 1541335 & 1050874 & 1736952\\
+\addlinespace
+Plant and Machine Operators and Assembler Occupations & 402639 & 3854407 & 14180541 & 741683 & 698375 & 5953850\\
+\rowcolor{gray!6}  Professional Occupations & 820935 & 7401650 & 37449078 & 3015180 & 1699599 & 5056319\\
+Service and Sales Worker Occupations & 817080 & 4945890 & 31421967 & 2355201 & 1124498 & 11610410\\
+\rowcolor{gray!6}  Skilled Agricultural, Forestry and Fishery Occupations & 187722 & 1537852 & 8223032 & 73344 & 784091 & 4668935\\
+Technicians and Associate Professional Occupations & 554736 & 5544054 & 34331795 & 2866619 & 1120886 & 3800846\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+In table \ref{tab:occupa} different occupations levels in different continents.
+
+\section*{Conclusion}
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+
+\section*{Conclusion}
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , 50.94 % of international migrants were female where as 49.06% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}
 
 <<<<<<< HEAD
 =======
