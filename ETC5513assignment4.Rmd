@@ -633,14 +633,15 @@ C5 <- C4 %>% pivot_wider(names_from = educationlevel, values_from = unemployRATE
 C5 %>% head(10) %>% kable(caption = "unemployrate on different level of education")
 ```
 
-```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level" }
+```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level"}
 C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot(aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
   
-   Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+   I made this \ref{fig:ed_un} to show unemployment on different education level in different countries, generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
 
 
 Limitation:
    There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
 
+\pagebreak
 \nocite{*}

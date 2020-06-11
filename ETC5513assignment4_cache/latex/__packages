@@ -1,0 +1,22 @@
+base
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+kableExtra
+bookdown
+<<<<<<< HEAD
+countrycode
+tinytex
+=======
+visdat
+scales
+gt
+knitr
+naniar
+>>>>>>> c925fd5f46ce738d86f4593eba4e4bc424c63605
