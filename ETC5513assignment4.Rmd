@@ -582,7 +582,7 @@ Analysis:
 
 
 
-\section* {Priya add section title please}
+\section* {Skills, Occupation and Qualification across the Globe}
 
 
 ```{r, echo=FALSE}
@@ -689,8 +689,7 @@ table[1:10,], booktabs = TRUE,
 
 ```
 
-In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
- 
+In table \@ref(tab:occupa) different occupations levels in different continents.
  
 \section*{Conclusion} 
 
