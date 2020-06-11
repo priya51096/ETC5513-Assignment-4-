@@ -473,7 +473,6 @@ A breakdown of Australian residents with different durations of stay, into their
 
 \section* {Ed add section title please}
 
-
 ```{r}
 C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
 ```
@@ -519,27 +518,20 @@ GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemplo
 ```
 
 ```{r}
-GGMF %>% kable(caption = "unemployment gendergap") %>%
-  kable_styling(latex_options = c("HOLD_position", "striped", "condensed"))
+GGMF %>% head(10) %>% kable(caption = "unemployment gendergap") %>% kable_styling(latex_options = c("HOLD_position"))
 ```
 
-\newpage
-
-```{r GAP, fig.width=11, fig.height=10, fig.cap = "unemployment gender gap", messgae =  FALSE}
+```{r GAP, fig.width=11, fig.height=7, fig.cap = "unemployment gender gap", messgae =  FALSE}
 
 GGMF%>% filter(country != "LUX") %>% filter(country!= "KOR") %>%
 ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
   geom_col()
 ```
 
+As is shown in \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
+  We can draw conlusion from  thatGenerally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
 
-
-Analysis:  
-
-
-  We can draw conclusion from \ref{fig:GAP} that Generally speaking, gender gap in unemployment rate does exist, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male.
-
-
+\pagebreak
 ```{r}
 C3 <- C2 %>% mutate(educationlevel = case_when(str_detect(educational_level
 , "1") ~ "low",
@@ -560,21 +552,19 @@ group_by(country, educationlevel) %>%
   summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
   mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
   select(country, educationlevel, unemployRATE)
-C4 %>% head(40) %>% kable(caption = "unemployment rate on different level of education") %>%
-  kable_styling(latex_options = c("HOLD_position", "striped", "condensed"))
-
+C5 <- C4 %>% pivot_wider(names_from = educationlevel, values_from = unemployRATE) %>% select(!unknown)
+C5 %>% head(10) %>% kable(caption = "unemployrate on different level of education")
 ```
 
-\pagebreak
-
-```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level" }
+```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level"}
 C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot(aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
+  
+   Situation in different countries varies. most countries have the unemployment rate under 10%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
 
-Analysis:
-  
-  
-  \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+
+Limitation:
+   There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
 
 
 \pagebreak
