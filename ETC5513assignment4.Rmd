@@ -637,7 +637,7 @@ C5 %>% head(10) %>% kable(caption = "unemployrate on different level of educatio
 C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot(aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
 ```
   
-   I made this \ref{fig:ed_un} to show unemployment on different education level in different countries, generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+   Situation in different countries varies. most countries have the unemployment rate under 10%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
 
 
 Limitation:
