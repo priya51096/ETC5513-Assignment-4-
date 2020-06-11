@@ -64,6 +64,10 @@ library(visdat)
 
 Our sincere gratitude goes out to Dr.Patricia Menéndez and the tutors; Stephanie Kobakian, Mark Dulhunty and Pablo Montero Manso for their guidance and support during the semester. Their culminative efforts have put us in a position where we are able to collaboratively produce this report while demonstrating our ability to use git tools.
 
+\pagebreak
+
+
+
 \section*{Abstract}
 
 There is no doubt that globalization is here to stay and that it continues to intensify and to reshape our identities and living spaces. **Migration** is one important factor that enhances globalization and helps in cultural and socio-economic changes in a large scale. This report will focus on a few aspects of migration. 
@@ -103,6 +107,27 @@ The International Standard Classification of Education is a statistical framewor
 What is ISCO ?
 
 The International Standard Classification of Occupations is an International Labor Organization classification structure for organizing information on labor and jobs.
+
+\subsection*{Limitations of the dataset}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+  \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+\end{enumerate}
+
 
 \section*{Research Ethics}
 
@@ -660,31 +685,11 @@ table <- dat4 %>%
 knitr::kable(
 table[1:10,], booktabs = TRUE,
   caption = 'List of Occupations that people engage in after Migration') %>% 
-  kable_styling(bootstrap_options = c("striped", "hover") , latex_options = "scale_down")
+  kable_styling(latex_options = c("HOLD_position", "striped", "condensed", "scale_down"))
 
 ```
 
 In table \@ref(tab:occupa) we see the different occupation (will explain rest of it in master to work in the master) in order to work in master.
-
-\section*{Limitations}
-
-The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
-
-\begin{enumerate}
-
-   \item Confidentiality and Reliability issues 
-
-Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
-
-   \item Unavailability of data
-
-Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
-
-  \item  Inconsistency of data
- 
- The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
- 
-\end{enumerate}
  
  
 \section*{Conclusion} 

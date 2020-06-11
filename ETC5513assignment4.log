@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 11:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1586,108 +1586,108 @@ Overfull \hbox (56.23262pt too wide) detected at line 312
 [1
 
 {c:/Users/acer/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
-.map} <./logo.jpg>]
+.map} <./logo.jpg>] [2]
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 320.
-<data/image.png, id=13, 758.835pt x 572.1375pt>
+(Font)              scaled to size 10.51207pt on input line 322.
+<data/image.png, id=18, 758.835pt x 572.1375pt>
 File: data/image.png Graphic file (type png)
 <use data/image.png>
-Package pdftex.def Info: data/image.png  used on input line 332.
+Package pdftex.def Info: data/image.png  used on input line 334.
 (pdftex.def)             Requested size: 455.24663pt x 343.24149pt.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 333.
-[2] [3 <./data/image.png>] [4]
+(Font)              scaled to size 10.51207pt on input line 335.
+[3] [4 <./data/image.png>] [5]
 LaTeX Font Info:    Trying to load font information for TS1+mdbch on input line
- 375.
+ 397.
 
 (c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/ts
 1mdbch.fd
 File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
 )
 LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 375.
-[5]
-<ETC5513assignment4_files/figure-latex/gendergap-1.pdf, id=40, 722.7pt x 361.35
+(Font)              scaled to size 10.51207pt on input line 397.
+[6] [7]
+<ETC5513assignment4_files/figure-latex/gendergap-1.pdf, id=53, 722.7pt x 361.35
 pt>
 File: ETC5513assignment4_files/figure-latex/gendergap-1.pdf Graphic file (type 
 pdf)
 <use ETC5513assignment4_files/figure-latex/gendergap-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/gendergap-1.pdf 
- used on input line 419.
+ used on input line 441.
 (pdftex.def)             Requested size: 455.24826pt x 227.62413pt.
-[6]
-<ETC5513assignment4_files/figure-latex/agegap-1.pdf, id=48, 578.16pt x 361.35pt
+[8]
+<ETC5513assignment4_files/figure-latex/agegap-1.pdf, id=60, 578.16pt x 361.35pt
 >
 File: ETC5513assignment4_files/figure-latex/agegap-1.pdf Graphic file (type pdf
 )
 <use ETC5513assignment4_files/figure-latex/agegap-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/agegap-1.pdf  us
-ed on input line 428.
+ed on input line 450.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
-[7 <./ETC5513assignment4_files/figure-latex/gendergap-1.pdf>] [8 <./ETC5513assi
-gnment4_files/figure-latex/agegap-1.pdf>]
-<ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf, id=71, 
+[9 <./ETC5513assignment4_files/figure-latex/gendergap-1.pdf>] [10 <./ETC5513ass
+ignment4_files/figure-latex/agegap-1.pdf>]
+<ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf, id=82, 
 578.16pt x 361.35pt>
 File: ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf Gra
 phic file (type pdf)
 <use ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/tile-plot-edu-vs
--duration-1.pdf  used on input line 471.
+-duration-1.pdf  used on input line 493.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
-[9] [10 <./ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.pd
-f>] [11]
+[11] [12 <./ETC5513assignment4_files/figure-latex/tile-plot-edu-vs-duration-1.p
+df>] [13]
 Overfull \vbox (138.31593pt too high) has occurred while \output is active []
 
-[12]
-<ETC5513assignment4_files/figure-latex/GAP-1.pdf, id=106, 794.97pt x 722.7pt>
+[14]
+<ETC5513assignment4_files/figure-latex/GAP-1.pdf, id=118, 794.97pt x 722.7pt>
 File: ETC5513assignment4_files/figure-latex/GAP-1.pdf Graphic file (type pdf)
 <use ETC5513assignment4_files/figure-latex/GAP-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/GAP-1.pdf  used 
-on input line 591.
+on input line 613.
 (pdftex.def)             Requested size: 455.2604pt x 413.8731pt.
-[13 <./ETC5513assignment4_files/figure-latex/GAP-1.pdf>]
+[15 <./ETC5513assignment4_files/figure-latex/GAP-1.pdf>]
 Overfull \vbox (202.84912pt too high) has occurred while \output is active []
 
-[14]
-<ETC5513assignment4_files/figure-latex/ed_un-1.pdf, id=124, 794.97pt x 722.7pt>
+[16]
+<ETC5513assignment4_files/figure-latex/ed_un-1.pdf, id=135, 794.97pt x 722.7pt>
 
 File: ETC5513assignment4_files/figure-latex/ed_un-1.pdf Graphic file (type pdf)
 
 <use ETC5513assignment4_files/figure-latex/ed_un-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/ed_un-1.pdf  use
-d on input line 694.
+d on input line 716.
 (pdftex.def)             Requested size: 455.2604pt x 413.8731pt.
 
-LaTeX Warning: Reference `figure:ed_un' on page 15 undefined on input line 700.
+LaTeX Warning: Reference `figure:ed_un' on page 17 undefined on input line 722.
 
 
-[15 <./ETC5513assignment4_files/figure-latex/ed_un-1.pdf>]
-<ETC5513assignment4_files/figure-latex/skill-1.pdf, id=135, 578.16pt x 361.35pt
+[17 <./ETC5513assignment4_files/figure-latex/ed_un-1.pdf>]
+<ETC5513assignment4_files/figure-latex/skill-1.pdf, id=147, 578.16pt x 361.35pt
 >
 File: ETC5513assignment4_files/figure-latex/skill-1.pdf Graphic file (type pdf)
 
 <use ETC5513assignment4_files/figure-latex/skill-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/skill-1.pdf  use
-d on input line 708.
+d on input line 730.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
-<ETC5513assignment4_files/figure-latex/qual-1.pdf, id=137, 578.16pt x 361.35pt>
+<ETC5513assignment4_files/figure-latex/qual-1.pdf, id=149, 578.16pt x 361.35pt>
 
 File: ETC5513assignment4_files/figure-latex/qual-1.pdf Graphic file (type pdf)
 <use ETC5513assignment4_files/figure-latex/qual-1.pdf>
 Package pdftex.def Info: ETC5513assignment4_files/figure-latex/qual-1.pdf  used
- on input line 716.
+ on input line 738.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
-[16 <./ETC5513assignment4_files/figure-latex/skill-1.pdf>] [17 <./ETC5513assign
-ment4_files/figure-latex/qual-1.pdf>] [18] [19]
+[18 <./ETC5513assignment4_files/figure-latex/skill-1.pdf>] [19 <./ETC5513assign
+ment4_files/figure-latex/qual-1.pdf>] [20]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.24173pt on input line 812.
-[20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 814.
+(Font)              scaled to size 9.24173pt on input line 814.
 [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 814.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 816.
+[22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 816.
 (./ETC5513assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 814.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 814.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 816.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 816.
 Package rerunfilecheck Info: File `ETC5513assignment4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1700,12 +1700,12 @@ Package biblatex Warning: Please rerun LaTeX.
 Package logreq Info: Writing requests to 'ETC5513assignment4.run.xml'.
 \openout1 = `ETC5513assignment4.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 814.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 816.
  ) 
 Here is how much of TeX's memory you used:
- 26420 strings out of 482913
- 438420 string characters out of 5957764
- 1101946 words of memory out of 5000000
+ 26421 strings out of 482913
+ 438427 string characters out of 5957764
+ 1101947 words of memory out of 5000000
  40936 multiletter control sequences out of 15000+600000
  637014 words of font info for 298 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1724,10 +1724,10 @@ b8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/be
 ra/fvsr8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
 lic/mathdesign/mdbch/md-chr8t.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/mathdesign/mdbch/md-chri8t.pfb>
-Output written on ETC5513assignment4.pdf (21 pages, 277366 bytes).
+Output written on ETC5513assignment4.pdf (22 pages, 278325 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
  30766 words of extra memory for PDF output out of 35830 (max. 10000000)
 
