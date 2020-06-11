@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.4.7)  11 JUN 2020 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1705,7 +1705,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 816.
 Here is how much of TeX's memory you used:
  26421 strings out of 482913
  438427 string characters out of 5957764
- 1101947 words of memory out of 5000000
+ 1101964 words of memory out of 5000000
  40936 multiletter control sequences out of 15000+600000
  637014 words of font info for 298 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1724,7 +1724,7 @@ b8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/be
 ra/fvsr8a.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
 lic/mathdesign/mdbch/md-chr8t.pfb><c:/Users/acer/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/mathdesign/mdbch/md-chri8t.pfb>
-Output written on ETC5513assignment4.pdf (22 pages, 278325 bytes).
+Output written on ETC5513assignment4.pdf (22 pages, 278091 bytes).
 PDF statistics:
  273 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams

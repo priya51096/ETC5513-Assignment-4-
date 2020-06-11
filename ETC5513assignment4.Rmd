@@ -23,8 +23,8 @@ author:
   email: asei0003@student.monash.edu
   qualifications:  BSc.
 correspondingauthor: true
-department: ETC5513, Group 11\newline Junhao &\newline Aarathy &\newline Dilinie &\newline Priya
-organization: Australian Government COVID19
+department: Department of\newline Econometrics &\newline Business Statistics
+organization: ETC5513 - Collaborative and Reproducible Practices
 bibliography: references.bib
 biblio-style: authoryear-comp
 linestretch: 1.5
