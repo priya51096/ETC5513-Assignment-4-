@@ -70,7 +70,27 @@ There is no doubt that globalization is here to stay and that it continues to in
 
 \section*{Introduction}
 
-Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily, at a new location. We are looking at a dataset from the database of OCED. In order to understand further analysis let us look at some of the important definition required to understand this report.
+Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily at a new location. With increased globalization, easy acess to opportunities across the world and increased educational and skill levels of individuals, migration has become a common occurence across the world.
+
+The impact of migration is an important factor affecting both the home country and the destination country of the migrant. The impact however varies by the reason of migration. Labor migration, skill based migration, migration for education, marriage migration and migration of refugees are a few categories of migration based on the reason for migration.
+
+Within the context of this report, the migration statistics in the years 2015 and 2016 will be analysed based on demographic factors of the migrants, their education and skill levels, preference of countries to migrate to and the type of occupations they are most likely to migrate for. The analysis will compare countries, continents and population within countries in deriving conclusions.
+
+
+![Migration Facts and Figures](data/image.png)
+
+
+\section*{Data Sources}
+
+The Organisation for Economic Co-operation and Development(OECD) provides a dataset based on the population censuses of OECD countries around the world. The OECD  and the World Bank also collaborate in providing an [extensive dataset on the immigrants from OECD countries to non-OECD countries](http://www.oecd.org/els/mig/dioc.htm).
+
+The dataset from the database of Immigrants in OECD and non-OECD countries from the year 2015-2016 will be used in the analysis within the report. The dataset includes information such as demographic characteristics of the immigrants, their duration stay, labor market outcomes, fields of study, educational attainment and their place of birth.
+
+Along with the dataset, the OECD provides documentation on the methodology used in obtaining the data and a description of limiations in the methodology. The metadata also contains a detailed explanation of the spread of data over several files, the encoded variables, the domain of each variable and reasons for missing values in specific variables
+
+The OECD makes data available for use and consultation by the public under the license **CC BY-NC-SA 3.0 IGO**. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
+
+A few important definitions required to understand this report are mentioned below.
 
 What is OECD ?
 
@@ -83,23 +103,6 @@ The International Standard Classification of Education is a statistical framewor
 What is ISCO ?
 
 The International Standard Classification of Occupations is an International Labor Organization classification structure for organizing information on labor and jobs.
-
-This report focuses on the migration dataset from the year 2015 to 2016. The OECD makes data available for use and consultation by the public under the license **CC BY-NC-SA 3.0 IGO**. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
-
-![Migration Facts and Figures](data/image.png)
-
-\section*{Motivation}
-
-Dilinie please add this(adding a little bit of data sources and a gist of all the research question in maybe 100-200 words.) 
-
-\section*{Data Source}
-
-(http://www.oecd.org/els/mig/dioc.htm)(link to the original dataset)
-Dilinie requesting you to the add the link to our where our dataset has been taken from. Also please add explanation of the data sources, also requesting you to explain the variables before this.
-
-Also you can mention a few lines about the high importance of clean and understandable metadata
-
-Comprehensive metadata can also enable data sets designed for a single purpose to be reused for other purposes and over the longer term. Please also write the importance of metadata.
 
 \section*{Research Ethics}
 
