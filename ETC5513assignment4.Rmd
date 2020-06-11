@@ -122,7 +122,11 @@ There research question we have aimed to answer are as follows:
 - Distribution of various skill levels, types of occupation and overqualified population across the globe in different continents
 
 
-\subsection*{Migration and Gender Gap}
+\pagebreak
+
+
+
+\section*{Migration and Gender Gap}
 
 ```{r dataread , echo=FALSE, message=FALSE}
 file1 <- read.csv("data/DIOC_2015_16_File_A_1.csv")
@@ -310,22 +314,8 @@ agegap <- whomigrates  %>%
 
 ```
 
-\subsection*{Unemployment and Education level}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\pagebreak
 
 
 \section* {The Education Level of Australian Residents}
@@ -391,13 +381,16 @@ This section will analyse the education levels of current residents of Australia
 
 The dataset provides information on the education levels of Australian residents and their duration of stay within the country.  
 The residents of Australia have been categorized based on their duration of stay within the country as  
-- native born  
-- less than 5 years  
-- between 5 - 10 years  
-- more than 10 years  
+
+- native born
+- less than 5 years
+- between 5 - 10 years
+- more than 10 years
+
 The level of education has been categorized using a broad three-category classification as  
-- low  
-- medium  
+
+- low
+- medium
 - high
 
 However the duration of stay of `r variable_miss_pct %>% filter(variable == "dos_lfs") %>% select(pct_miss)` of Australian residents is unknown, while the education level of `r variable_miss_pct %>% filter(variable == "edu_lfs") %>% select(pct_miss)` residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
@@ -453,6 +446,7 @@ A breakdown of Australian residents with different durations of stay, into their
 @green2007immigrant states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in over-education of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \@ref(fig:tile-plot-edu-vs-duration) and table \@ref(tab:table-percent-levels-of-education).
 
 
+
 \section* {Ed add section title please}
 
 
@@ -501,7 +495,8 @@ GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemplo
 ```
 
 ```{r}
-GGMF %>% kable(caption = "unemployment gendergap")
+GGMF %>% kable(caption = "unemployment gendergap") %>%
+  kable_styling(latex_options = c("HOLD_position", "striped", "condensed"))
 ```
 
 \newpage
@@ -556,6 +551,10 @@ Analysis:
   
   
   \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+
+
+\pagebreak
+
 
 
 \section* {Priya add section title please}

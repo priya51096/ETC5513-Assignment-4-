@@ -321,10 +321,31 @@ There is no doubt that globalization is here to stay and that it continues to in
 
 \section*{Introduction}
 
-Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily, at a new location. We are looking at a dataset from the database of OCED. In order to understand further analysis let us look at some of the important definition required to understand this report.
+Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily at a new location. With increased globalization, easy acess to opportunities across the world and increased educational and skill levels of individuals, migration has become a common occurence across the world.
 
-\hypertarget{what-is-oecd}{%
-\subsection{What is OECD ?}\label{what-is-oecd}}
+The impact of migration is an important factor affecting both the home country and the destination country of the migrant. The impact however varies by the reason of migration. Labor migration, skill based migration, migration for education, marriage migration and migration of refugees are a few categories of migration based on the reason for migration.
+
+Within the context of this report, the migration statistics in the years 2015 and 2016 will be analysed based on demographic factors of the migrants, their education and skill levels, preference of countries to migrate to and the type of occupations they are most likely to migrate for. The analysis will compare countries, continents and population within countries in deriving conclusions.
+
+\begin{figure}
+\centering
+\includegraphics{data/image.png}
+\caption{Migration Facts and Figures}
+\end{figure}
+
+\section*{Data Sources}
+
+The Organisation for Economic Co-operation and Development(OECD) provides a dataset based on the population censuses of OECD countries around the world. The OECD and the World Bank also collaborate in providing an \href{http://www.oecd.org/els/mig/dioc.htm}{extensive dataset on the immigrants from OECD countries to non-OECD countries}.
+
+The dataset from the database of Immigrants in OECD and non-OECD countries from the year 2015-2016 will be used in the analysis within the report. The dataset includes information such as demographic characteristics of the immigrants, their duration stay, labor market outcomes, fields of study, educational attainment and their place of birth.
+
+Along with the dataset, the OECD provides documentation on the methodology used in obtaining the data and a description of limiations in the methodology. The metadata also contains a detailed explanation of the spread of data over several files, the encoded variables, the domain of each variable and reasons for missing values in specific variables
+
+The OECD makes data available for use and consultation by the public under the license \textbf{CC BY-NC-SA 3.0 IGO}. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
+
+A few important definitions required to understand this report are mentioned below.
+
+What is OECD ?
 
 The Organisation for Economic Co-operation and Development (OECD) is a group of 34 member countries that discuss and develop economic and social policy. OECD members are democratic countries that support free-market economies
 
@@ -335,27 +356,6 @@ The International Standard Classification of Education is a statistical framewor
 What is ISCO ?
 
 The International Standard Classification of Occupations is an International Labor Organization classification structure for organizing information on labor and jobs.
-
-This report focuses on the migration dataset from the year 2015 to 2016. The OECD makes data available for use and consultation by the public under the license \textbf{CC BY-NC-SA 3.0 IGO}. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
-
-\begin{figure}
-\centering
-\includegraphics{data/image.png}
-\caption{Migration Facts and Figures}
-\end{figure}
-
-\section*{Motivation}
-
-Dilinie please add this(adding a little bit of data sources and a gist of all the research question in maybe 100-200 words.)
-
-\section*{Data Source}
-
-(\url{http://www.oecd.org/els/mig/dioc.htm})(link to the original dataset)
-Dilinie requesting you to the add the link to our where our dataset has been taken from. Also please add explanation of the data sources, also requesting you to explain the variables before this.
-
-Also you can mention a few lines about the high importance of clean and understandable metadata
-
-Comprehensive metadata can also enable data sets designed for a single purpose to be reused for other purposes and over the longer term. Please also write the importance of metadata.
 
 \section*{Research Ethics}
 
@@ -381,7 +381,9 @@ There research question we have aimed to answer are as follows:
   Distribution of various skill levels, types of occupation and overqualified population across the globe in different continents
 \end{itemize}
 
-\subsection*{Migration and Gender Gap}
+\pagebreak
+
+\section*{Migration and Gender Gap}
 
 Throughout history, humans have migrated for various reasons that could be classified as economic, social, political, etc. This section focuses on the preferred destination countries for migration as well as the gender difference across age groups in the migrant population in destination countries.
 
@@ -427,7 +429,7 @@ Amongst the age group 15-24, there is a relatively low gender difference in the 
 \caption{\label{fig:agegap}Gender difference in migrant population across age groups in countries}
 \end{figure}
 
-\subsection*{Unemployment and Education level}
+\pagebreak
 
 \section* {The Education Level of Australian Residents}
 
@@ -436,15 +438,31 @@ In the past few decades, Australia has acquired many skilled migrants, contribut
 This section will analyse the education levels of current residents of Australia categorized by their duration of stay in the country.
 
 The dataset provides information on the education levels of Australian residents and their duration of stay within the country.\\
-The residents of Australia have been categorized based on their duration of stay within the country as\\
-- native born\\
-- less than 5 years\\
-- between 5 - 10 years\\
-- more than 10 years\\
-The level of education has been categorized using a broad three-category classification as\\
-- low\\
-- medium\\
-- high
+The residents of Australia have been categorized based on their duration of stay within the country as
+
+\begin{itemize}
+\tightlist
+\item
+  native born
+\item
+  less than 5 years
+\item
+  between 5 - 10 years
+\item
+  more than 10 years
+\end{itemize}
+
+The level of education has been categorized using a broad three-category classification as
+
+\begin{itemize}
+\tightlist
+\item
+  low
+\item
+  medium
+\item
+  high
+\end{itemize}
 
 However the duration of stay of 25.9\% of Australian residents is unknown, while the education level of 24.6\% residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
 
@@ -485,7 +503,7 @@ A breakdown of Australian residents with different durations of stay, into their
 
 \section* {Ed add section title please}
 
-\begin{table}
+\begin{table}[H]
 
 \caption{\label{tab:unnamed-chunk-9}unemployment gendergap}
 \centering
@@ -493,75 +511,75 @@ A breakdown of Australian residents with different durations of stay, into their
 \hline
 country & unemployrateM & unemployrateF & unemployrateGAP\\
 \hline
-AUS & 4.862303 & 4.0115099 & -0.8507930\\
+\rowcolor{gray!6}  AUS & 4.862303 & 4.0115099 & -0.8507930\\
 \hline
 AUT & 5.336735 & 3.9353913 & -1.4013437\\
 \hline
-BEL & 4.347939 & 3.2985616 & -1.0493775\\
+\rowcolor{gray!6}  BEL & 4.347939 & 3.2985616 & -1.0493775\\
 \hline
 CAN & 5.778106 & 4.3270743 & -1.4510321\\
 \hline
-CHE & 3.865908 & 3.2144728 & -0.6514349\\
+\rowcolor{gray!6}  CHE & 3.865908 & 3.2144728 & -0.6514349\\
 \hline
 CHL & 4.809590 & 3.9577202 & -0.8518701\\
 \hline
-CZE & 2.396411 & 2.4515907 & 0.0551801\\
+\rowcolor{gray!6}  CZE & 2.396411 & 2.4515907 & 0.0551801\\
 \hline
 DEU & 2.936210 & 2.0469143 & -0.8892954\\
 \hline
-DNK & 2.148729 & 2.1059917 & -0.0427379\\
+\rowcolor{gray!6}  DNK & 2.148729 & 2.1059917 & -0.0427379\\
 \hline
 ESP & 10.985712 & 10.8943528 & -0.0913595\\
 \hline
-EST & 5.300859 & 3.4574224 & -1.8434366\\
+\rowcolor{gray!6}  EST & 5.300859 & 3.4574224 & -1.8434366\\
 \hline
 FIN & 9.559730 & 6.8315897 & -2.7281404\\
 \hline
-FRA & 8.392850 & 7.8781252 & -0.5147248\\
+\rowcolor{gray!6}  FRA & 8.392850 & 7.8781252 & -0.5147248\\
 \hline
 GBR & 3.663103 & 2.8918511 & -0.7712517\\
 \hline
-GRC & 10.585938 & 7.4697667 & -3.1161718\\
+\rowcolor{gray!6}  GRC & 10.585938 & 7.4697667 & -3.1161718\\
 \hline
 HUN & 7.512527 & 5.7554851 & -1.7570423\\
 \hline
-IRL & 9.371130 & 6.6267541 & -2.7443755\\
+\rowcolor{gray!6}  IRL & 9.371130 & 6.6267541 & -2.7443755\\
 \hline
 ISL & 3.634079 & 3.1891160 & -0.4449626\\
 \hline
-ISR & 3.226836 & 2.9344538 & -0.2923819\\
+\rowcolor{gray!6}  ISR & 3.226836 & 2.9344538 & -0.2923819\\
 \hline
 ITA & 6.557226 & 5.1080372 & -1.4491892\\
 \hline
-JPN & 3.452669 & 1.6996869 & -1.7529817\\
+\rowcolor{gray!6}  JPN & 3.452669 & 1.6996869 & -1.7529817\\
 \hline
 KOR & NA & NA & NA\\
 \hline
-LUX & 46.543493 & 35.7410219 & -10.8024711\\
+\rowcolor{gray!6}  LUX & 46.543493 & 35.7410219 & -10.8024711\\
 \hline
 LVA & 7.869852 & 5.4260483 & -2.4438039\\
 \hline
-MEX & 3.497137 & 0.9523001 & -2.5448371\\
+\rowcolor{gray!6}  MEX & 3.497137 & 0.9523001 & -2.5448371\\
 \hline
 NLD & 3.881309 & 3.8180653 & -0.0632437\\
 \hline
-NOR & 2.147195 & 1.4721626 & -0.6750323\\
+\rowcolor{gray!6}  NOR & 2.147195 & 1.4721626 & -0.6750323\\
 \hline
 NZL & 3.579875 & 3.6812728 & 0.1013976\\
 \hline
-POL & 7.015866 & 5.7597853 & -1.2560810\\
+\rowcolor{gray!6}  POL & 7.015866 & 5.7597853 & -1.2560810\\
 \hline
 PRT & 7.032256 & 5.9746734 & -1.0575825\\
 \hline
-SVK & 11.368361 & 8.7232843 & -2.6450766\\
+\rowcolor{gray!6}  SVK & 11.368361 & 8.7232843 & -2.6450766\\
 \hline
 SVN & 4.902322 & 4.6408436 & -0.2614786\\
 \hline
-SWE & 3.838277 & 3.0794607 & -0.7588166\\
+\rowcolor{gray!6}  SWE & 3.838277 & 3.0794607 & -0.7588166\\
 \hline
 TUR & 7.266447 & 4.5316713 & -2.7347755\\
 \hline
-USA & 3.955071 & 3.2786733 & -0.6763982\\
+\rowcolor{gray!6}  USA & 3.955071 & 3.2786733 & -0.6763982\\
 \hline
 \end{tabular}
 \end{table}
@@ -680,6 +698,8 @@ EST & low & 0.0441750\\
 Analysis:
 
 \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
+
+\pagebreak
 
 \section* {Priya add section title please}
 
