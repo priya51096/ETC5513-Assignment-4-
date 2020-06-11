@@ -62,7 +62,7 @@ library(visdat)
 
 \section*{Acknowledgements}
 
-Our sincere gratitude goes out to Dr.Patricia Menéndez and the tutors Stephanie Kobakian, Mark Dulhunty and Pablo Montero Manso for their guidance and support during the semester. Their culminative efforts have put us in a position where we are able to collaboratively produce this report and while demonstrating our ability to use git tools.
+Our sincere gratitude goes out to Dr.Patricia Menéndez and the tutors; Stephanie Kobakian, Mark Dulhunty and Pablo Montero Manso for their guidance and support during the semester. Their culminative efforts have put us in a position where we are able to collaboratively produce this report while demonstrating our ability to use git tools.
 
 \section*{Abstract}
 
@@ -442,7 +442,7 @@ aus_b1 %>%
          "Low level of education (%)" = l_prcnt,
          "Unknown level of education (%)" = u_prcnt) %>%
   kable(caption = "Percentages of Australian residents with different levels of education over each category of duration of stay") %>%
-  kable_styling(latex_options = c("HOLD_position", "scale_down"))
+  kable_styling(latex_options = c("HOLD_position", "scale_down", "striped", "condensed"))
 ```
 
 A breakdown of Australian residents with different durations of stay, into their level of education is represented in table \@ref(tab:table-percent-levels-of-education). It can be seen that the majority of individuals who have obtained residency in Australia recently have a high level of education while only a few of them have a low level of education. A significant increase in percentages of individuals with higher levels of education obtaining residency in Australia can also be seen from table \@ref(tab:table-percent-levels-of-education). Most native-Australians (41%) have a medium level of education, while others with shorter durations of stay in Australia have much higher levels of education.
@@ -537,7 +537,8 @@ group_by(country, educationlevel) %>%
   summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
   mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
   select(country, educationlevel, unemployRATE)
-C4 %>% head(40) %>% kable(caption = "unemployment rate on different level of education")
+C4 %>% head(40) %>% kable(caption = "unemployment rate on different level of education") %>%
+  kable_styling(latex_options = c("HOLD_position", "scale_down", "striped", "condensed"))
 
 ```
 
