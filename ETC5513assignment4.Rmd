@@ -388,7 +388,6 @@ agegap <- whomigrates  %>%
 ```
 
 
-
 \section*{Limitations}
 
 The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
@@ -651,7 +650,259 @@ Analysis:
   \ref{figure:ed_un} Generally speaking, most have lower unemployment rate compared to low education level groups, but this is not the case in TUR,PRT,RGC AND ITA.
 
 
-Limitation:
-   There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+
+\section*{Limitations}
+
+The Database on Immigrants in OECD Countries (DIOC) 2015/16 provides information on age,duration of stay, labour force status and occupation of the migrants. The limitations of the dataset is as follows,
+
+\begin{enumerate}
+
+   \item Confidentiality and Reliability issues 
+
+Due to confidentiality issues, the place of birth is recorded at the continental level such as Africa, Asia, Europe, etc.instead of the country level in the dataset,therefore the analysis is focused on only the destination countries.Also,there is only limited details available on the important variables like educational qualification and skills. 
+
+   \item Unavailability of data
+
+Unavailability of data on variables like age, skills,occupation ,labour force status and educational qualification proved to be a limitation to the analysis of the dataset.
+
+ \item  Inconsistency of data
+ 
+ The dataset contains inconsistency in data for example the reference population for Switzerland, Luxembourg and New Zealand is 15+ and there is no information on the age group 0-14. Due to this reason and the fact that 0-14 age group belongs to the minor category, the age group 0-14  was not considered for the analysis of gender gap in migrant population.  
+ 
+ \end{enumerate}
+ 
+ 
+\section*{Conclusion} 
+
+
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+
+\begin{enumerate}
+
+\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
+
+\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
+
+\end{enumerate}
+
+\section* {The Education Level of Australian Residents}
+
+```{r reading-data}
+fileb1 <- read.csv("data/DIOC_2015_16_File_B_1.csv")
+```
+
+```{r}
+# missing values (unknown values) represented by 99, were replaced by NA for analysis of dataset
+fileb1_missing <- filter(fileb1, country == "AUS") %>%
+  replace_with_na(replace =
+                    list(edu_lfs = 99,
+                         dos_lfs = 99,
+                         fborn = 99)
+                  )
+
+variable_miss_pct <- miss_var_summary(fileb1_missing) %>%
+  mutate(pct_miss = percent(pct_miss/100))
+
+
+```
+
+```{r cleaning-data}
+fileb1cleaned <- fileb1 %>% mutate(
+  sex = case_when(
+    sex == "1" ~ "male",
+    sex == "2"~ "female"
+    ),
+  edu_lfs = case_when(
+    edu_lfs == "1" ~ "low",
+    edu_lfs == "2" ~ "medium",
+    edu_lfs == "3" ~ "high",
+    edu_lfs == "99" ~ "unknown"
+  ),
+  dos_lfs = case_when(
+    dos_lfs == "0" ~ "native-born",
+    dos_lfs == "1" ~ "five-years-or-less",
+    dos_lfs == "2" ~ "five-to-ten-years",
+    dos_lfs == "3" ~ "more-than-ten-years",
+    dos_lfs == "23" ~ "more-than-five-years",
+    dos_lfs == "99" ~ "unknown",
+  ),
+  oecd = case_when(
+    oecd == "0" ~ "non-member",
+    oecd == "1" ~ "member"
+  ),
+  oecdb = case_when(
+    oecdb == "0" ~ "non-member",
+    oecdb == "1" ~ "member"
+  ),
+  fborn = case_when(
+    fborn == "0" ~ "native-born",
+    fborn == "1" ~ "foreign-born",
+    fborn == "99" ~ "unknown"
+  )
+  )
+```
+
+In the past few decades, Australia has acquired many skilled migrants, contributing substantially towards the local economy. @hawthorne2010valuable states that by 2007, two thirds of them were former international students recruited in Australia rather than offshore applicants. This transition has also been named as the "two-step-migration" by @hawthorne2010valuable.
+
+This section will analyse the education levels of current residents of Australia categorized by their duration of stay in the country.
+
+The dataset provides information on the education levels of Australian residents and their duration of stay within the country.  
+The residents of Australia have been categorized based on their duration of stay within the country as  
+- native born  
+- less than 5 years  
+- between 5 - 10 years  
+- more than 10 years  
+The level of education has been categorized using a broad three-category classification as  
+- low  
+- medium  
+- high
+
+However the duration of stay of `r variable_miss_pct %>% filter(variable == "dos_lfs") %>% select(pct_miss)` of Australian residents is unknown, while the education level of `r variable_miss_pct %>% filter(variable == "edu_lfs") %>% select(pct_miss)` residents is unknown. These values will also be used in the analysis as unknowns, to provide a more accurate overlook on the overall numbers.
+ 
+
+```{r summarise-aus-data}
+#filter AUS residents
+aus_b1 <- fileb1cleaned %>% filter(country == "AUS") %>%
+  group_by(dos_lfs,edu_lfs) %>%
+  summarise(count = sum(number))
+```
+
+
+```{r tile-plot-edu-vs-duration, fig.cap="Breakdown of Australian residents based on their level of Education and duration of stay in Australia"}
+aus_b1 %>% ggplot(aes(x = dos_lfs,
+                     y = edu_lfs)) +
+  geom_tile(aes(fill = count)) +
+  labs(x = "Duration of Stay",
+       y = "Level of Education") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(limits = c("five-years-or-less", "five-to-ten-years", "more-than-ten-years", "native-born", "unknown")) +
+  scale_y_discrete(limits = c("low", "medium", "high", "unknown")) +
+  scale_fill_continuous(labels=comma)
+```
+
+Figure \@ref(fig:tile-plot-edu-vs-duration) shows the breakdown of Australian residents based on their duration of stay in Australia and their level of education; the higher counts of residents are represented by light blue and the lower number of residents are represented by dark blue. The dataset contains a few unknowns about the Australian resident, some on the level of education and some on the duration of stay, which is also represented in figure \@ref(fig:tile-plot-edu-vs-duration).
+
+It's obvious that the highest counts of Australian residents are natives, and is interesting that a majority of them have a medium level of education, followed by natives having a higher level of education and only a few of them having a low level of education.
+It's also interesting how the numbers of Ausralian residents who have been in the country for over ten years, shows higher counts of numbers than those who have been in the country for a lower duration of time. It can also be seen that in all three categories of non-native born Australians, most have received a high level of education.
+
+
+```{r table-percent-levels-of-education}
+aus_b1 %>%
+  filter(dos_lfs != "unknown") %>%
+  pivot_wider(values_from = count,
+              names_from = edu_lfs) %>%
+  mutate(h_prcnt = percent(high/sum(high+low+medium+unknown)),
+         m_prcnt = percent(medium/sum(high+low+medium+unknown)),
+         l_prcnt = percent(low/sum(high+low+medium+unknown)),
+         u_prcnt = percent(unknown/sum(high+low+medium+unknown))) %>%
+  select(-high, -medium, -low, -unknown) %>%
+  rename("Duration of stay" = dos_lfs,
+         "High level of education (%)" = h_prcnt,
+         "Medium level of education (%)" = m_prcnt,
+         "Low level of education (%)" = l_prcnt,
+         "Unknown level of education (%)" = u_prcnt) %>%
+  kable(caption = "Percentages of Australian residents with different levels of education over each category of duration of stay") %>%
+  kable_styling(latex_options = c("HOLD_position", "scale_down"))
+```
+
+A breakdown of Australian residents with different durations of stay, into their level of education is represented in table \@ref(tab:table-percent-levels-of-education). It can be seen that the majority of individuals who have obtained residency in Australia recently have a high level of education while only a few of them have a low level of education. A significant increase in percentages of individuals with higher levels of education obtaining residency in Australia can also be seen from table \@ref(tab:table-percent-levels-of-education). Most native-Australians (41%) have a medium level of education, while others with shorter durations of stay in Australia have much higher levels of education.
+
+@green2007immigrant states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in overeducation of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \@ref(fig:tile-plot-edu-vs-duration) and table \@ref(tab:table-percent-levels-of-education).
+
+
+\pagebreak
+
+```{r}
+C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
+```
+
+```{r}
+C1 <- C %>% mutate(gender = case_when(str_detect(sex, "1") ~ "male",
+                         str_detect(sex, "2") ~ "female"))
+C2 <- C1 %>% mutate(employment = case_when(str_detect(labour_force_status
+, "1") ~ "employed",
+                         str_detect(labour_force_status
+, "2") ~ "unemployed",
+                         str_detect(labour_force_status
+, "3")~ "inactive",
+                         str_detect(labour_force_status
+, "99")~ "unknown"))
+```
+
+
+```{r}
+GG <- C2 %>% select(!sex) %>% pivot_wider(names_from = gender, values_from = number) %>% select(country, male, female, employment)
+```
+
+```{r}
+GGM <- GG %>% group_by(country, employment) %>% summarise(countM = sum(male, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
+```
+
+
+```{r}
+GGM1 <- GGM %>% mutate(unemployrateM = (unemployed/(employed + inactive + unemployed)*100)) %>% select(country,unemployrateM)
+```
+
+
+```{r}
+GGF <- GG %>% group_by(country, employment) %>% summarise(countM = sum(female, na.rm = TRUE)) %>% pivot_wider(names_from = employment, values_from = countM)
+```
+
+```{r}
+GGF1 <- GGF %>% mutate(unemployrateF = (unemployed/(employed + inactive + unemployed))*100) %>% select(country,unemployrateF)
+```
+
+```{r unemployment_gendergap}
+GGMF <- GGM1 %>% full_join(GGF1, "country") %>% mutate(unemployrateGAP = unemployrateF - unemployrateM)
+```
+
+```{r}
+GGMF %>% head(10) %>% kable(caption = "unemployment gendergap")
+```
+
+```{r GAP, fig.width=11, fig.height=7, fig.cap = "unemployment gender gap", messgae =  FALSE}
+
+GGMF%>% filter(country != "LUX") %>% filter(country!= "KOR") %>%
+ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +  
+  geom_col()
+```
+
+As is shown in \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
+  We can draw conlusion from  thatGenerally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
+
+\pagebreak
+```{r}
+C3 <- C2 %>% mutate(educationlevel = case_when(str_detect(educational_level
+, "1") ~ "low",
+                         str_detect(educational_level
+, "2") ~ "medium",
+                         str_detect(educational_level
+, "3")~ "high",
+                         str_detect(educational_level
+, "99")~ "unknown"))
+
+```
+
+```{r}
+C4 <-C3 %>% 
+  select(!labour_force_status) %>% 
+  pivot_wider(names_from = employment, values_from = number) %>%
+group_by(country, educationlevel) %>% 
+  summarise(employed = sum(employed, na.rm = TRUE), unemployed = sum(unemployed, na.rm = TRUE), inactive = sum(inactive, na.rm = TRUE)) %>% 
+  mutate(unemployRATE = unemployed/(employed + unemployed + inactive)) %>% 
+  select(country, educationlevel, unemployRATE)
+C5 <- C4 %>% pivot_wider(names_from = educationlevel, values_from = unemployRATE) %>% select(!unknown)
+C5 %>% head(10) %>% kable(caption = "unemployrate on different level of education")
+```
+
+```{r ed_un, fig.width = 11, fig.height = 10, fig.cap = "unemployment rate among different education level"}
+C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot(aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country)
+```
+  
+   Situation in different countries varies. most countries have the unemployment rate under 10%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
+There are some missing values that can influence the outcome to some extent, it is like the data I use became a smaller sample.
+
+
+\pagebreak
 
 \nocite{*}
