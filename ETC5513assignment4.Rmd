@@ -135,7 +135,12 @@ Dataset used in the report for analysis, has a lot of unknown values due to conf
 
 \section*{Methodology}
 
-Every migrant analyzes a few factors of the destination country before actually settling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job opportunities, what is the unemployment rate, what is the level of education and their recognition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on  four research questions, giving all of us a gist about the state of migration and migrants, across the world. 
+Every migrant analyzes a few factors of the destination country before actually settling permanently or temporarily. Some of the factors are which are the best destination countries, what are the job opportunities, what is the unemployment rate, what is the level of education and their recognition worldwide, and similar many other factors. But our report is a live dataset from the past years and shows true analysis of what is the current situation of migration across the globe and particularly about Australia as well. Since our dataset is large and contains many files this report only focuses on  four research questions, giving all of us a gist about the state of migration and migrants, across the world.
+
+
+\pagebreak
+
+
 
 \section*{Research Questions}
 
@@ -471,7 +476,7 @@ A breakdown of Australian residents with different durations of stay, into their
 
 
 
-\section* {Ed add section title please}
+\section*{Gender Gap and Education with Unemployment rate}
 
 ```{r}
 C <- read_csv("data/DIOC_2015_16_File_C_1.csv") %>% rename("labour_force_status" = "lfs", "educational_level" = "edu_lfs")
