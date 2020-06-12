@@ -222,7 +222,7 @@ whomigrates<- file1 %>%
 
 ```
 
-The table \@ref(tab:topdestinations) depicts the preferred destinations for migration in the year 2015/16. Historically, the USA have been the most popular destination for migration and has remained the same in the year 2015-16, with the most preferred destinations being the USA, Japan, and Mexico across all ages. 
+The table \@ref(tab:topdestinations) depicts the preferred destinations for migration in the year 2015/16. @oecd_2019 states that historically, the USA have been the most popular destination for migration and has remained the same in the year 2015-16, with the most preferred destinations being the USA, Japan, and Mexico across all ages. 
 
 ```{r topdestinations, echo = FALSE, message = FALSE, warning=FALSE}
 
@@ -311,7 +311,7 @@ gendergap <- whomigrates %>%
 
 ```
 
-In 2015-16, the most number of migrants fell in the age group 25-64, with females being higher in number compared to males in countries like the USA, Mexico, Germany, etc. In countries like Japan, Korea and Spain it can be seen that there is no gender gap in the migrant population of age group 25-64 whereas in countries like Poland and Turkey the number of males is higher than females for the same age group. 
+In  figure \@ref(fig:agegap), we can see that in 2015-16, the most number of migrants fell in the age group 25-64, with females being higher in number compared to males in countries like the USA, Mexico, Germany, etc. In countries like Japan, Korea and Spain it can be seen that there is no gender gap in the migrant population of age group 25-64 whereas in countries like Poland and Turkey the number of males is higher than females for the same age group. 
 Amongst the age group 15-24, there is a relatively low gender difference in the migrant population compared to the other age groups and the trend is uniform in almost all the countries whereas amongst the migrants who are 65 years old and above, the number of females is higher than that of males in the USA, Japan , Italy, etc and Mexico being one of the top destinations for migration, saw an influx of an equal number of males and females aged over 65 in the year 2015-16. 
 
 
@@ -534,8 +534,8 @@ ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +
   geom_col() + theme_bw()
 ```
 
-As is shown in \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
-  We can draw conclusion from  that Generally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
+As is shown in figure \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
+  We can draw conclusion from  that generally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
 
 
 ```{r}
@@ -567,7 +567,7 @@ C5 %>% head(10) %>% kable(caption = "unemployment rate on different level of edu
 C4 %>% filter(country != "LUX") %>% filter(country!= "KOR") %>%ggplot(aes(x = educationlevel, y = unemployRATE, color = educationlevel, fill = educationlevel)) + geom_col() +  facet_wrap(~ country) + theme_bw()
 ```
   
-   Situation in different countries varies. most countries have the unemployment rate under 10%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
+From figure \ref{fig:ed-un} we can see that the situation in different countries varies. most countries have the unemployment rate under 10%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
 
 
 Limitation:
@@ -685,21 +685,21 @@ table[1:10,], booktabs = TRUE,
 
 ```
 
-In table \@ref(tab:occupa) different occupations levels in different continents.
- 
+In table \@ref(tab:occupa) we have a list of different occupations levels as per the International Standard Classification of Occupations @ilo. This table has `r nrow(dat4)` rows and `r ncol(dat4)` columns. Looking more closely at the table we deduce that they are more number of migrants who engage themselves in Elementary Occupations across the globe, scrutinizing the graph, we realize that the numbers are high throughout all region for Elementary Occupations. Professional Occupations see a different pattern throughout and we notice that Europe has higher number of migrants in engaged in professional and skilled jobs compared to the other continents. Armed Forced Occupations displays less number of migrants involved in similar jobs. On the whole, we observe the count of different number of migrants occupied in different classified occupations.
+
+\pagebreak
+
  
 \section*{Conclusion} 
 
 
-Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), we conclude the following,
+Migrants have made significant impacts on socio-economic as well as the political sphere of a destination countries. From the analysis on the Database on Immigrants in OECD Countries (DIOC) released by The Organisation for Economic Co-operation and Development (OECD), by looking at the migration in different age groups, we have deduced that people between 25-64 migrate more, as compared to the other age groups. Also amongst them we have observed that females migrate more as compared to men. We have also looked at the top 10 destination countries for migration across the globe. Furthermore, we have seen the different education attainment levels in Australia with respect to their duration of stay and from our analysis derived that, migrating population has higher education attainment when compared to the native Australians. In addition, we have look at the gender gap and unemployment rate, have found out that women have lower unemployment rate when compared to the men and also observed that in most cases education attainment level is directly proportionate to the employment opportunities. Lastly we were introduced to the different skill levels and qualification levels across the globe where, most migrants are engaged in skill level 02 and skill level 03 across the globe, and we see that most people across the globe are just rightly qualified with respect to their employment.
 
-\begin{enumerate}
 
-\item In the year 2015-16 , `r round(percent$pf,2)` % of international migrants were female where as `r round(percent$pm,2)`% were male. 
+Further we have understood the importance of a clean reproducible workflow and working collaboratively as a team. The team together has helped enhance knowledge about various github tools, Rmarkdown and Rstudio. On the whole this team has helped each other foster their creativity and a great knowledge exchange throughout the project.
 
-\item People between 25-64 years old migrated more compared to the other age groups in year 2015-16. 
 
-\end{enumerate}
+\pagebreak
 
 
 \nocite{*}
