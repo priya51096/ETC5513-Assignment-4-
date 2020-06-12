@@ -413,7 +413,7 @@ Throughout history, humans have migrated for various reasons that could be class
 
 The table \ref{tab:topdestinations} depicts the preferred destinations for migration in the year 2015/16. Historically, the USA have been the most popular destination for migration and has remained the same in the year 2015-16, with the most preferred destinations being the USA, Japan, and Mexico across all ages.
 
-\begin{table}
+\begin{table}[H]
 
 \caption{\label{tab:topdestinations}Top 10 destinations}
 \centering
@@ -525,6 +525,8 @@ A breakdown of Australian residents with different durations of stay, into their
 
 \textcite{green2007immigrant} states that the immigration policies in Australia has placed an increased focus in skill-based selection criteria, and has resulted in over-education of recently arrived Australian immigrants. This can be attributed to the most of the recent immigrants having a high level of education as represented by figure \ref{fig:tile-plot-edu-vs-duration} and table \ref{tab:table-percent-levels-of-education}.
 
+\pagebreak
+
 \section*{Gender Gap and Education with Unemployment rate}
 
 \begin{table}[H]
@@ -535,23 +537,23 @@ A breakdown of Australian residents with different durations of stay, into their
 \hline
 country & unemployrateM & unemployrateF & unemployrateGAP\\
 \hline
-AUS & 4.862303 & 4.011510 & -0.8507930\\
+\rowcolor{gray!6}  AUS & 4.862303 & 4.011510 & -0.8507930\\
 \hline
 AUT & 5.336735 & 3.935391 & -1.4013437\\
 \hline
-BEL & 4.347939 & 3.298562 & -1.0493775\\
+\rowcolor{gray!6}  BEL & 4.347939 & 3.298562 & -1.0493775\\
 \hline
 CAN & 5.778106 & 4.327074 & -1.4510321\\
 \hline
-CHE & 3.865908 & 3.214473 & -0.6514349\\
+\rowcolor{gray!6}  CHE & 3.865908 & 3.214473 & -0.6514349\\
 \hline
 CHL & 4.809590 & 3.957720 & -0.8518701\\
 \hline
-CZE & 2.396411 & 2.451591 & 0.0551801\\
+\rowcolor{gray!6}  CZE & 2.396411 & 2.451591 & 0.0551801\\
 \hline
 DEU & 2.936210 & 2.046914 & -0.8892954\\
 \hline
-DNK & 2.148729 & 2.105992 & -0.0427379\\
+\rowcolor{gray!6}  DNK & 2.148729 & 2.105992 & -0.0427379\\
 \hline
 ESP & 10.985712 & 10.894353 & -0.0913595\\
 \hline
@@ -567,33 +569,31 @@ ESP & 10.985712 & 10.894353 & -0.0913595\\
 As is shown in \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
 We can draw conlusion from thatGenerally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
 
-\pagebreak
+\begin{table}[H]
 
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-11}unemployrate on different level of education}
+\caption{\label{tab:unnamed-chunk-11}unemployment rate on different level of education}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
 country & high & low & medium\\
 \hline
-AUS & 0.0354576 & 0.0443595 & 0.0532527\\
+\rowcolor{gray!6}  AUS & 0.0354576 & 0.0443595 & 0.0532527\\
 \hline
 AUT & 0.0311428 & 0.0701552 & 0.0457923\\
 \hline
-BEL & 0.0298011 & 0.0431251 & 0.0461857\\
+\rowcolor{gray!6}  BEL & 0.0298011 & 0.0431251 & 0.0461857\\
 \hline
 CAN & 0.0452058 & 0.0517304 & 0.0601727\\
 \hline
-CHE & 0.0328462 & 0.0416613 & 0.0336930\\
+\rowcolor{gray!6}  CHE & 0.0328462 & 0.0416613 & 0.0336930\\
 \hline
 CHL & 0.0179900 & 0.0427796 & 0.0498058\\
 \hline
-CZE & 0.0167868 & 0.0409399 & 0.0226775\\
+\rowcolor{gray!6}  CZE & 0.0167868 & 0.0409399 & 0.0226775\\
 \hline
 DEU & 0.0160581 & 0.0374303 & 0.0236941\\
 \hline
-DNK & 0.0231097 & 0.0177326 & 0.0225601\\
+\rowcolor{gray!6}  DNK & 0.0231097 & 0.0177326 & 0.0225601\\
 \hline
 ESP & 0.0880976 & 0.1186934 & 0.1216533\\
 \hline
@@ -602,8 +602,8 @@ ESP & 0.0880976 & 0.1186934 & 0.1216533\\
 
 \begin{figure}
 \centering
-\includegraphics{ETC5513assignment4_files/figure-latex/ed_un-1.pdf}
-\caption{(\#fig:ed\_un)unemployment rate among different education level}
+\includegraphics{ETC5513assignment4_files/figure-latex/ed-un-1.pdf}
+\caption{\label{fig:ed-un}unemployment rate among different education level}
 \end{figure}
 
 Situation in different countries varies. most countries have the unemployment rate under 10\%. Generally speaking, most have lower unemployment rate compared to low education level groups, but surprisingly, this is not the case in TUR,PRT,RGC AND ITA.
