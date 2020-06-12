@@ -74,7 +74,7 @@ There is no doubt that globalization is here to stay and that it continues to in
 
 \section*{Introduction}
 
-Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily at a new location. With increased globalization, easy acess to opportunities across the world and increased educational and skill levels of individuals, migration has become a common occurence across the world.
+Migration is the movement of people from one place to another with the intentions of settling permanently or temporarily at a new location. With increased globalization, easy access to opportunities across the world and increased educational and skill levels of individuals, migration has become a common occurrence across the world.
 
 The impact of migration is an important factor affecting both the home country and the destination country of the migrant. The impact however varies by the reason of migration. Labor migration, skill based migration, migration for education, marriage migration and migration of refugees are a few categories of migration based on the reason for migration.
 
@@ -90,7 +90,7 @@ The Organisation for Economic Co-operation and Development(OECD) provides a data
 
 The dataset from the database of Immigrants in OECD and non-OECD countries from the year 2015-2016 will be used in the analysis within the report. The dataset includes information such as demographic characteristics of the immigrants, their duration stay, labor market outcomes, fields of study, educational attainment and their place of birth.
 
-Along with the dataset, the OECD provides documentation on the methodology used in obtaining the data and a description of limiations in the methodology. The metadata also contains a detailed explanation of the spread of data over several files, the encoded variables, the domain of each variable and reasons for missing values in specific variables
+Along with the dataset, the OECD provides documentation on the methodology used in obtaining the data and a description of limitations in the methodology. The metadata also contains a detailed explanation of the spread of data over several files, the encoded variables, the domain of each variable and reasons for missing values in specific variables
 
 The OECD makes data available for use and consultation by the public under the license **CC BY-NC-SA 3.0 IGO**. This license allows us to share and modify data apart from commercial uses and has strict restrictions of attribution.
 
@@ -535,7 +535,7 @@ ggplot(aes(x = unemployrateGAP, y = country, color = country, fill = country)) +
 ```
 
 As is shown in \ref{fig:GAP} , the unemployment rate differences between female and male are negative in most countries.
-  We can draw conlusion from  thatGenerally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
+  We can draw conclusion from  that Generally speaking, gender gap in unemployment rate does exist. Surprisingly, the unemployment rate gaps are negative in most country, this means female have lower unemployment rate than male in most countries.
 
 
 ```{r}
